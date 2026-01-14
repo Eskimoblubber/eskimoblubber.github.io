@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Common I-129F Mistakes That Cause Delays (2026) | K1 Visa Kit</title>
+  <meta name="description" content="Avoid costly I-129F filing mistakes. Learn what errors commonly trigger RFEs and delays in 2026, based on real USCIS requirements.">
+  <style>
+:root{
+      --primary-blue:#2563eb;
+      --dark-blue:#1e3a8a;
+      --success-green:#10b981;
+
+      --text-dark:#1e293b;
+      --text-medium:#475569;
+      --text-light:#64748b;
+
+      --bg-light:#f8fafc;
+      --bg-white:#ffffff;
+      --border-color:#e2e8f0;
+
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'Outfit',sans-serif;
+      color:var(--text-dark);
+      line-height:1.7;
+      background:var(--bg-white);
+    }
+    a{color:var(--primary-blue);text-decoration:none;}
+    a:hover{color:var(--dark-blue);}
+
+    .container{max-width:1100px;margin:0 auto;padding:0 24px;}
+    .container-narrow{max-width:860px;margin:0 auto;padding:0 24px;}
+
+    /* Header (matches main site) */
+    header{
+      background:rgba(255,255,255,0.95);
+      border-bottom:1px solid var(--border-color);
+      padding:18px 0;
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(10px);
+    }
+    .header-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
+    .logo-mark{
+      width:40px;height:40px;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(37,99,235,0.15), rgba(16,185,129,0.12));
+      border:1px solid var(--border-color);
+      display:grid;
+      place-items:center;
+      box-shadow: var(--shadow-sm);
+    }
+    .logo-text{
+      font-size:1.25rem;
+      font-weight:800;
+      color:var(--text-dark);
+      letter-spacing:-0.02em;
+    }
+    .cta-button{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:12px 22px;
+      background:var(--primary-blue);
+      color:#fff;
+      border-radius:10px;
+      font-weight:700;
+      font-size:0.98rem;
+      transition:all .25s ease;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 2px 8px rgba(37,99,235,.2);
+      white-space:nowrap;
+    }
+    .cta-button:hover{
+      background:var(--dark-blue);
+      transform:translateY(-2px);
+      box-shadow:0 4px 12px rgba(37,99,235,.3);
+      color:#fff;
+    }
+    .cta-button-secondary{
+      background:transparent;
+      color:var(--primary-blue);
+      border:2px solid var(--primary-blue);
+      box-shadow:none;
+      padding:10px 20px;
+    }
+    .cta-button-secondary:hover{
+      background:var(--primary-blue);
+      color:#fff;
+      transform:translateY(-2px);
+    }
+
+    /* Hero */
+    .hero{
+      background:linear-gradient(135deg, #f8fafc 0%, #e8ecf1 100%);
+      padding:64px 0 56px;
+    }
+    .hero .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-weight:700;
+      color:var(--text-medium);
+      background:#fff;
+      border:1px solid var(--border-color);
+      padding:10px 14px;
+      border-radius:999px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero h1{
+      margin-top:18px;
+      font-size:3rem;
+      font-weight:800;
+      line-height:1.15;
+      letter-spacing:-0.03em;
+    }
+    .hero h1 .highlight{color:var(--primary-blue);}
+    .hero p{
+      margin-top:14px;
+      color:var(--text-medium);
+      font-size:1.12rem;
+      max-width:760px;
+    }
+    .hero .cta-row{
+      margin-top:26px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .meta{
+      margin-top:14px;
+      color:var(--text-light);
+      font-size:0.95rem;
+    }
+
+    /* Content */
+    main{padding:56px 0 70px;background:var(--bg-white);}
+    .section{
+      margin-top:34px;
+    }
+    .card{
+      background:var(--bg-light);
+      border:1px solid var(--border-color);
+      border-radius:16px;
+      padding:22px;
+    }
+    .card.white{
+      background:#fff;
+    }
+    .card + .card{margin-top:16px;}
+    .section-title{
+      font-size:1.6rem;
+      font-weight:800;
+      letter-spacing:-0.02em;
+      margin-bottom:10px;
+    }
+    .section-sub{
+      color:var(--text-medium);
+      margin-top:2px;
+    }
+
+    /* Checklist blocks */
+    .checklist{
+      list-style:none;
+      display:grid;
+      gap:10px;
+      margin-top:14px;
+    }
+    .check{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px 12px;
+      background:#fff;
+      border:1px solid var(--border-color);
+      border-radius:12px;
+    }
+    .box{
+      width:20px;height:20px;
+      border:2px solid var(--border-color);
+      border-radius:6px;
+      margin-top:2px;
+      flex:0 0 auto;
+      background:linear-gradient(180deg, #fff, #fbfdff);
+    }
+    .check strong{font-weight:800;}
+    .muted{color:var(--text-medium);}
+
+    /* Callouts */
+    .callout{
+      border-radius:14px;
+      border:1px solid var(--border-color);
+      padding:16px 16px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      background:#fff;
+    }
+    .callout .icon{
+      width:34px;height:34px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:900;
+      flex:0 0 auto;
+      box-shadow: var(--shadow-sm);
+    }
+    .callout.blue{border-left:5px solid var(--primary-blue);}
+    .callout.blue .icon{background:var(--primary-blue);}
+    .callout.green{border-left:5px solid var(--success-green);}
+    .callout.green .icon{background:var(--success-green);}
+    .callout.red{
+      border-left:5px solid #dc2626;
+      background:#fff;
+    }
+    .callout.red .icon{background:#dc2626;}
+    .callout h3{
+      font-size:1.05rem;
+      font-weight:800;
+      margin-bottom:2px;
+    }
+    .callout p{color:var(--text-medium);margin:0;}
+    .callout p strong{color:var(--text-dark);}
+
+    /* Promo + disclaimer */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:18px;
+      margin-top:18px;
+    }
+    @media (max-width: 860px){
+      .two-col{grid-template-columns:1fr;}
+      .hero h1{font-size:2.3rem;}
+    }
+
+    .promo{
+      background:#fff;
+      border:1px solid var(--border-color);
+      border-radius:16px;
+      padding:22px;
+      box-shadow: var(--shadow-sm);
+    }
+    .promo h2{
+      font-size:1.4rem;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+    .promo ul{
+      margin:12px 0 0 18px;
+      color:var(--text-medium);
+    }
+    .promo li{margin:6px 0;}
+    .product-button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      background:var(--primary-blue);
+      color:#fff;
+      border-radius:12px;
+      font-weight:800;
+      margin-top:14px;
+      transition:all .25s ease;
+      width:100%;
+    }
+    .product-button:hover{
+      background:var(--dark-blue);
+      transform:translateY(-2px);
+      box-shadow:0 4px 12px rgba(37,99,235,.3);
+      color:#fff;
+    }
+    .small-link{
+      margin-top:10px;
+      font-size:0.95rem;
+      color:var(--text-light);
+      text-align:center;
+    }
+    .small-link a{
+      font-weight:700;
+      border-bottom:1px solid rgba(37,99,235,0.35);
+    }
+
+    .disclaimer{
+      background:#1e293b;
+      color:#cbd5e1;
+      border-radius:16px;
+      padding:22px;
+      border:1px solid rgba(226,232,240,0.2);
+    }
+    .disclaimer h2{
+      color:#fff;
+      font-size:1.25rem;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+    .disclaimer a{color:#60a5fa;}
+    .disclaimer p{margin:10px 0 0 0;}
+    footer{
+      border-top:1px solid var(--border-color);
+      padding:30px 0;
+      color:var(--text-light);
+      font-size:0.92rem;
+      background:var(--bg-white);
+    }
+    footer .footrow{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+  
+/* Split CTA links so they don't read as one */
+.cta-links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:flex-start;
+  margin-top:12px;
+}
+.cta-links .btn{
+  width:auto;
+}
+@media (min-width: 720px){
+  .cta-links{
+    gap:12px;
+  }
+}
+
+</style>
+</head>
+<body>
+<header>
+    <div class="container">
+      <div class="header-content">
+        <a class="logo" href="https://k1visakit.com/">
+          <div class="logo-mark" aria-hidden="true">
+            <!-- simple doc+check icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-blue);">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <path d="M14 2v6h6"></path>
+              <path d="M9 15l2 2 4-4" stroke="var(--success-green)"></path>
+            </svg>
+          </div>
+          <span class="logo-text">K1 Visa Kit</span>
+        </a>
+
+        <a class="cta-button" href="https://k1visakit.gumroad.com/l/uprod" target="_blank" rel="noopener">
+          Get the Guide
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 10h12M12 5l5 5-5 5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+<section class="hero">
+  <div class="container">
+    <div class="kicker">2026 • Avoid RFEs &amp; delays</div>
+    <h1>Common I‑129F mistakes that cause delays</h1>
+    <p class="sub">
+      Most delays come from a handful of predictable issues: outdated form editions, blank fields, mismatched names/dates,
+      missing signatures, and unclear evidence. Use this page as a quick “pitfall scan” before you mail your packet.
+    </p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="grid">
+    
+<div class="card span4">
+  <h2>Fast pre‑mail checklist</h2>
+  <p>Before you seal the envelope, take 10 minutes to confirm these:</p>
+  <ul class="bullets">
+    <li>Correct form edition (all pages match)</li>
+    <li>No blank required fields (use “N/A”)</li>
+    <li>Names/dates match across documents</li>
+    <li>Signed in black ink</li>
+    <li>Intent letters included (signed + dated)</li>
+    <li>Clear in‑person meeting proof</li>
+  </ul>
+  <hr>
+  <div class="cta-links">
+    <a class="btn" href="/k1-visa-checklist.html">Open the free checklist →</a>
+    <a class="btn secondary" href="/">Back to the main site →</a>
+  </div>
+</div>
+
+    
+<div class="card span8">
+  <h2>Using an Outdated Form Edition</h2>
+  <div class="tagrow">
+    <span class="tag">Common delay trigger</span>
+    <span class="tag">Quick fix</span>
+  </div>
+  <hr>
+  <p><strong>What it is:</strong> Submitting an old I-129F edition, or mixing pages from different editions.</p>
+  <p><strong>Why it matters:</strong> USCIS can reject the petition if the edition date at the bottom of the pages doesn’t match throughout the form.</p>
+  <div class="callout">
+    <p><strong>How to avoid it:</strong> Download the form from USCIS.gov the day you prepare your final packet and confirm the edition date on every page before printing.</p>
+  </div>
+</div>
+
+<div class="card span8">
+  <h2>Leaving Required Fields Blank</h2>
+  <div class="tagrow">
+    <span class="tag">Common delay trigger</span>
+    <span class="tag">Quick fix</span>
+  </div>
+  <hr>
+  <p><strong>What it is:</strong> Leaving fields empty instead of writing “N/A” when something doesn’t apply.</p>
+  <p><strong>Why it matters:</strong> Blank fields can look like missing information and can trigger delays or an RFE.</p>
+  <div class="callout">
+    <p><strong>How to avoid it:</strong> Use “N/A” consistently anywhere a question truly doesn’t apply. Don’t leave required fields blank.</p>
+  </div>
+</div>
+
+<div class="card span8">
+  <h2>Name and Date Inconsistencies</h2>
+  <div class="tagrow">
+    <span class="tag">Common delay trigger</span>
+    <span class="tag">Quick fix</span>
+  </div>
+  <hr>
+  <p><strong>What it is:</strong> Different spellings, formats, or dates across the form and evidence.</p>
+  <p><strong>Why it matters:</strong> Mismatches can create identity/consistency questions and lead to follow-up requests.</p>
+  <div class="callout">
+    <p><strong>How to avoid it:</strong> Use full legal names exactly as shown on passports/official documents. Keep date format consistent everywhere.</p>
+  </div>
+</div>
+
+<div class="card span8">
+  <h2>Submitting an Unsigned Form</h2>
+  <div class="tagrow">
+    <span class="tag">Common delay trigger</span>
+    <span class="tag">Quick fix</span>
+  </div>
+  <hr>
+  <p><strong>What it is:</strong> Forgetting the petitioner’s handwritten signature, or using a typed/stamped signature.</p>
+  <p><strong>Why it matters:</strong> An unsigned petition is invalid and can be rejected and returned.</p>
+  <div class="callout">
+    <p><strong>How to avoid it:</strong> Sign in black ink after a final review, right before printing/assembling the packet.</p>
+  </div>
+</div>
+
+<div class="card span8">
+  <h2>Missing Intent-to-Marry Statements</h2>
+  <div class="tagrow">
+    <span class="tag">Common delay trigger</span>
+    <span class="tag">Quick fix</span>
+  </div>
+  <hr>
+  <p><strong>What it is:</strong> Missing, undated, or unclear intent-to-marry letters from either party.</p>
+  <p><strong>Why it matters:</strong> USCIS may issue an RFE if the requirement isn’t clearly met.</p>
+  <div class="callout">
+    <p><strong>How to avoid it:</strong> Include simple signed + dated letters from both petitioner and beneficiary confirming intent to marry within 90 days.</p>
+  </div>
+</div>
+
+<div class="card span8">
+  <h2>Weak In‑Person Meeting Evidence</h2>
+  <div class="tagrow">
+    <span class="tag">Common delay trigger</span>
+    <span class="tag">Quick fix</span>
+  </div>
+  <hr>
+  <p><strong>What it is:</strong> Evidence that’s vague, undated, or doesn’t clearly show you met in person.</p>
+  <p><strong>Why it matters:</strong> The in‑person meeting requirement is core—unclear evidence often leads to an RFE.</p>
+  <div class="callout">
+    <p><strong>How to avoid it:</strong> Include a small set of clear proof showing when/where you met (quality over quantity).</p>
+  </div>
+</div>
+
+<div class="card span8">
+  <h2>Gaps/Overlaps in Address or Employment History</h2>
+  <div class="tagrow">
+    <span class="tag">Common delay trigger</span>
+    <span class="tag">Quick fix</span>
+  </div>
+  <hr>
+  <p><strong>What it is:</strong> Unexplained gaps or overlapping dates in the last 5 years.</p>
+  <p><strong>Why it matters:</strong> USCIS expects continuous timelines; gaps/overlaps can trigger clarification requests.</p>
+  <div class="callout">
+    <p><strong>How to avoid it:</strong> Cover every month. Use “Unemployed” when applicable. Ensure dates don’t overlap.</p>
+  </div>
+</div>
+
+<div class="card span8">
+  <h2>Not Disclosing Criminal/Restraining Order History</h2>
+  <div class="tagrow">
+    <span class="tag">Common delay trigger</span>
+    <span class="tag">Quick fix</span>
+  </div>
+  <hr>
+  <p><strong>What it is:</strong> Answering “No” when any arrest/charge/order exists (even dismissed or expunged).</p>
+  <p><strong>Why it matters:</strong> Background checks can reveal undisclosed incidents and create credibility concerns.</p>
+  <div class="callout">
+    <p><strong>How to avoid it:</strong> Answer truthfully and include certified court dispositions when needed.</p>
+  </div>
+</div>
+
+<div class="card span8">
+  <h2>Filling Interpreter/Preparer Sections When Not Used</h2>
+  <div class="tagrow">
+    <span class="tag">Common delay trigger</span>
+    <span class="tag">Quick fix</span>
+  </div>
+  <hr>
+  <p><strong>What it is:</strong> Completing Part 6/7 even though no interpreter or preparer helped.</p>
+  <p><strong>Why it matters:</strong> Can create confusion about who prepared the petition or who understood what was signed.</p>
+  <div class="callout">
+    <p><strong>How to avoid it:</strong> If not used, mark “N/A” throughout those sections and do not sign them.</p>
+  </div>
+</div>
+
+    <div class="card span12">
+      <h2>Want the simplest next step?</h2>
+      <p>Use the checklist page to make sure your packet is complete, then do one slow final review for consistency.</p>
+      <div class="cta-links">
+        <a class="btn" href="/k1-visa-checklist.html">Free I‑129F checklist →</a>
+        <a class="btn secondary" href="/">Complete kit details →</a>
+      </div>
+      <p class="small" style="margin-top:12px"><strong>Note:</strong> This content is general information, not legal advice.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+    <div class="container-narrow">
+      <div class="footrow">
+        <div>© 2026 K1 Visa Kit. Not affiliated with USCIS. All rights reserved.</div>
+        <div><a href="mailto:support@k1visakit.com">support@k1visakit.com</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
