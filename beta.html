@@ -294,8 +294,13 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="badge">🎉 Limited Beta Access</div>
-            <h1>Help Us Perfect Our K-1 Visa Guide</h1>
+    <div style="text-align: left; margin-bottom: 15px;">
+        <a href="https://k1visakit.com" style="color: white; text-decoration: none; font-size: 14px; opacity: 0.9;">
+            ← Back to K1VisaKit.com
+        </a>
+    </div>
+    <div class="badge">🎉 Limited Beta Access</div>
+    <h1>Help Us Perfect Our K-1 Visa Guide</h1>
             <p class="subtitle">Get our complete filing kit FREE ($47 value) in exchange for your honest feedback. Created from real experience to help you navigate the I-129F process.</p>
         </div>
         
@@ -387,7 +392,17 @@
             <label for="email">Email Address *</label>
             <input type="email" id="email" name="email" required placeholder="your.email@example.com">
         </div>
-        
+        <div class="form-group">
+    <label for="role">Are you the U.S. Citizen Petitioner or the Foreign Fiancé(e)? *</label>
+    <select id="role" name="applicant_role" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 16px; font-family: inherit;">
+        <option value="">-- Select One --</option>
+        <option value="petitioner">U.S. Citizen Petitioner (filing the I-129F)</option>
+        <option value="beneficiary">Foreign Fiancé(e) (the beneficiary)</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="status">Where are you in the K-1 process? *</label>
         <div class="form-group">
             <label for="status">Where are you in the K-1 process? *</label>
             <select id="status" name="filing_status" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 16px; font-family: inherit;">
