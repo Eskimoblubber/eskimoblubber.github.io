@@ -163,7 +163,8 @@
         
         input[type="text"],
         input[type="email"],
-        textarea {
+        textarea,
+        select {
             width: 100%;
             padding: 12px;
             border: 2px solid #e0e0e0;
@@ -175,7 +176,8 @@
         
         input[type="text"]:focus,
         input[type="email"]:focus,
-        textarea:focus {
+        textarea:focus,
+        select:focus {
             outline: none;
             border-color: #667eea;
         }
@@ -227,6 +229,12 @@
             transform: translateY(0);
         }
         
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
         .limited-spots {
             background: #fff3cd;
             border: 2px solid #ffc107;
@@ -271,6 +279,71 @@
             color: #666;
         }
         
+        /* Success Message Styles */
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .success-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #155724;
+            margin-bottom: 15px;
+        }
+        
+        .success-text {
+            font-size: 16px;
+            color: #155724;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .success-highlight {
+            background: #fff;
+            border: 2px solid #28a745;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+        
+        .spam-reminder {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 14px;
+            color: #856404;
+        }
+        
         @media (max-width: 600px) {
             h1 {
                 font-size: 24px;
@@ -294,13 +367,13 @@
 <body>
     <div class="container">
         <div class="header">
-    <div style="text-align: left; margin-bottom: 15px;">
-        <a href="https://k1visakit.com" style="color: white; text-decoration: none; font-size: 14px; opacity: 0.9;">
-            ← Back to K1VisaKit.com
-        </a>
-    </div>
-    <div class="badge">🎉 Limited Beta Access</div>
-    <h1>Help Us Perfect Our K-1 Visa Guide</h1>
+            <div style="text-align: left; margin-bottom: 15px;">
+                <a href="https://k1visakit.com" style="color: white; text-decoration: none; font-size: 14px; opacity: 0.9;">
+                    ← Back to K1VisaKit.com
+                </a>
+            </div>
+            <div class="badge">🎉 Limited Beta Access</div>
+            <h1>Help Us Perfect Our K-1 Visa Guide</h1>
             <p class="subtitle">Get our complete filing kit FREE ($47 value) in exchange for your honest feedback. Created from real experience to help you navigate the I-129F process.</p>
         </div>
         
@@ -378,88 +451,157 @@
                 </div>
             </div>
            
-           <!-- FORM SECTION -->
-<div class="form-section">
-    <div class="form-title">Apply to Be a Beta Tester</div>
-    
-    <form id="betaForm" action="https://formspree.io/f/mdaakaey" method="POST">
-        <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required placeholder="John Smith">
-        </div>
-        
-        <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-        </div>
-        <div class="form-group">
-    <label for="role">Are you the U.S. Citizen Petitioner or the Foreign Fiancé(e)? *</label>
-    <select id="role" name="applicant_role" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 16px; font-family: inherit;">
-        <option value="">-- Select One --</option>
-        <option value="petitioner">U.S. Citizen Petitioner (filing the I-129F)</option>
-        <option value="beneficiary">Foreign Fiancé(e) (the beneficiary)</option>
-    </select>
-</div>
+            <!-- SUCCESS MESSAGE (Hidden by default) -->
+            <div id="successMessage" class="success-message">
+                <div class="success-icon">✅</div>
+                <div class="success-title">Application Received!</div>
+                <p class="success-text">
+                    Thank you for applying to be a beta tester! We're excited to have you join our testing group.
+                </p>
+                
+                <div class="success-highlight">
+                    ⏰ <strong>Please allow 24-48 hours</strong> for us to review your application and send your confirmation email with download access.
+                </div>
+                
+                <div class="spam-reminder">
+                    <strong>📬 Important:</strong> Please check your <strong>spam/junk folder</strong> for our confirmation email from support@k1visakit.com. If you don't see it in your inbox within 48 hours, it may have been filtered there.
+                </div>
+                
+                <p class="success-text" style="margin-top: 15px; font-size: 14px;">
+                    We manually review each application to ensure we're accepting testers who will provide valuable feedback. You'll hear from us soon!
+                </p>
+            </div>
+           
+            <!-- FORM SECTION -->
+            <div id="formSection" class="form-section">
+                <div class="form-title">Apply to Be a Beta Tester</div>
+                
+                <form id="betaForm" action="https://formspree.io/f/mdaakaey" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="John Smith">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="role">Are you the U.S. Citizen Petitioner or the Foreign Fiancé(e)? *</label>
+                        <select id="role" name="applicant_role" required>
+                            <option value="">-- Select One --</option>
+                            <option value="petitioner">U.S. Citizen Petitioner (filing the I-129F)</option>
+                            <option value="beneficiary">Foreign Fiancé(e) (the beneficiary)</option>
+                        </select>
+                    </div>
 
-<div class="form-group">
-    <label for="status">Where are you in the K-1 process? *</label>
-        <div class="form-group">
-            <select id="status" name="filing_status" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 16px; font-family: inherit;">
-                <option value="">-- Select One --</option>
-                <option value="preparing">Just starting - gathering documents</option>
-                <option value="filling">Actively filling out the I-129F form</option>
-                <option value="reviewing">Ready to submit - final review</option>
-                <option value="other">Other (will specify below)</option>
-            </select>
-        </div>
+                    <div class="form-group">
+                        <label for="status">Where are you in the K-1 process? *</label>
+                        <select id="status" name="filing_status" required>
+                            <option value="">-- Select One --</option>
+                            <option value="preparing">Just starting - gathering documents</option>
+                            <option value="filling">Actively filling out the I-129F form</option>
+                            <option value="reviewing">Ready to submit - final review</option>
+                            <option value="other">Other (will specify below)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="why">Why do you want the K-1 Visa Kit? (Optional)</label>
+                        <textarea id="why" name="why_want_kit" placeholder="e.g., 'I'm confused about what documents to include' or 'I want to make sure I don't make mistakes'"></textarea>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agree" name="agree_terms" required>
+                        <label for="agree" class="checkbox-label">
+                            I agree to provide honest feedback after using the guide. I understand this beta copy is for my personal use only and should not be shared. I agree to the terms of use.
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        🎉 Get FREE Access Now (Limited Spots!)
+                    </button>
+                </form>
+                
+                <p style="text-align: center; margin-top: 20px; font-size: 13px; color: #666;">
+                    🔒 Your information is safe. We'll never share your email or spam you.
+                </p>
+            </div>
         
-        <div class="form-group">
-            <label for="why">Why do you want the K-1 Visa Kit? (Optional)</label>
-            <textarea id="why" name="why_want_kit" placeholder="e.g., 'I'm confused about what documents to include' or 'I want to make sure I don't make mistakes'"></textarea>
-        </div>
-        
-        <div class="checkbox-group">
-            <input type="checkbox" id="agree" name="agree_terms" required>
-            <label for="agree" class="checkbox-label">
-                I agree to provide honest feedback after using the guide. I understand this beta copy is for my personal use only and should not be shared. I agree to the terms of use.
-            </label>
-        </div>
-        
-        <button type="submit" class="submit-btn">
-            🎉 Get FREE Access Now (Limited Spots!)
-        </button>
-    </form>
-    
-    <p style="text-align: center; margin-top: 20px; font-size: 13px; color: #666;">
-        🔒 Your information is safe. We'll never share your email or spam you.
-    </p>
-</div>
-        
-        <div style="background: #f8f9fa; padding: 30px; margin: 0; border-top: 2px solid #dee2e6;">
-            <div style="max-width: 700px; margin: 0 auto;">
-                <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 15px; color: #333;">⚖️ Important Legal Disclaimer</h3>
-                <div style="font-size: 13px; line-height: 1.6; color: #666;">
-                    <p style="margin-bottom: 10px;"><strong>K1 Visa Kit is an educational resource and is not a law firm.</strong> The information provided in this guide is not legal advice and does not create an attorney-client relationship. This guide is designed to help you understand and organize the I-129F filing process, but it cannot replace the advice of a licensed immigration attorney.</p>
-                    
-                    <p style="margin-bottom: 10px;"><strong>No Guarantee of Approval:</strong> We do not guarantee that your petition will be approved. USCIS makes all decisions regarding visa petitions based on individual circumstances. Results vary, and approval depends on many factors beyond the scope of this guide.</p>
-                    
-                    <p style="margin-bottom: 10px;"><strong>Not Affiliated with USCIS:</strong> K1 Visa Kit is not affiliated with, endorsed by, or connected to U.S. Citizenship and Immigration Services (USCIS), the U.S. Department of State, or any government agency.</p>
-                    
-                    <p style="margin-bottom: 10px;"><strong>Complex Cases:</strong> If you have a complex immigration case, prior denials, criminal history, or any concerns about your eligibility, we strongly recommend consulting with a licensed immigration attorney.</p>
-                    
-                    <p style="margin-bottom: 10px;"><strong>Beta Program Terms:</strong> This beta version is provided for testing and feedback purposes. By participating, you agree to provide honest feedback and not share or distribute the materials. The guide is based on the creators' personal experience and current USCIS requirements as of January 2026.</p>
-                    
-                    <p style="margin-bottom: 0;"><strong>Use at Your Own Risk:</strong> While we've made every effort to ensure accuracy, immigration laws and USCIS procedures can change. Always verify information with official USCIS sources and consider consulting an immigration attorney for your specific situation.</p>
+            <div style="background: #f8f9fa; padding: 30px; margin: 0; border-top: 2px solid #dee2e6;">
+                <div style="max-width: 700px; margin: 0 auto;">
+                    <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 15px; color: #333;">⚖️ Important Legal Disclaimer</h3>
+                    <div style="font-size: 13px; line-height: 1.6; color: #666;">
+                        <p style="margin-bottom: 10px;"><strong>K1 Visa Kit is an educational resource and is not a law firm.</strong> The information provided in this guide is not legal advice and does not create an attorney-client relationship. This guide is designed to help you understand and organize the I-129F filing process, but it cannot replace the advice of a licensed immigration attorney.</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>No Guarantee of Approval:</strong> We do not guarantee that your petition will be approved. USCIS makes all decisions regarding visa petitions based on individual circumstances. Results vary, and approval depends on many factors beyond the scope of this guide.</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>Not Affiliated with USCIS:</strong> K1 Visa Kit is not affiliated with, endorsed by, or connected to U.S. Citizenship and Immigration Services (USCIS), the U.S. Department of State, or any government agency.</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>Complex Cases:</strong> If you have a complex immigration case, prior denials, criminal history, or any concerns about your eligibility, we strongly recommend consulting with a licensed immigration attorney.</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>Beta Program Terms:</strong> This beta version is provided for testing and feedback purposes. By participating, you agree to provide honest feedback and not share or distribute the materials. The guide is based on the creators' personal experience and current USCIS requirements as of January 2026.</p>
+                        
+                        <p style="margin-bottom: 0;"><strong>Use at Your Own Risk:</strong> While we've made every effort to ensure accuracy, immigration laws and USCIS procedures can change. Always verify information with official USCIS sources and consider consulting an immigration attorney for your specific situation.</p>
+                    </div>
                 </div>
             </div>
-        </div>
         
-        <div class="footer">
-            <p>© 2026 K1 Visa Kit | Not affiliated with USCIS</p>
-            <p style="margin-top: 5px; font-size: 12px;">This is a beta testing program. Regular price will be $47 after beta period ends.</p>
+            <div class="footer">
+                <p>© 2026 K1 Visa Kit | Not affiliated with USCIS</p>
+                <p style="margin-top: 5px; font-size: 12px;">This is a beta testing program. Regular price will be $47 after beta period ends.</p>
+            </div>
         </div>
     </div>
     
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Form submission handling
-        document.getElem
+        document.getElementById('betaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const formSection = document.getElementById('formSection');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Submit to Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Hide form
+                    formSection.style.display = 'none';
+                    
+                    // Show success message
+                    successMessage.classList.add('show');
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Reset form
+                    document.getElementById('betaForm').reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                alert('Oops! There was a problem submitting your application. Please try again or email us directly at support@k1visakit.com');
+                submitBtn.disabled = false;
+                submitBtn.textContent = '🎉 Get FREE Access Now (Limited Spots!)';
+            });
+        });
+    </script>
+</body>
+</html>
