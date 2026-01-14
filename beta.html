@@ -372,69 +372,54 @@
                     <div class="trust-label">Limited Beta Spots</div>
                 </div>
             </div>
-            
+           
            <!-- FORM SECTION -->
-            <div class="form-section">
-               <div class="form-title">Apply to Be a Beta Tester</div>
-       
-                   <iframe src="https://forms.gle/ruerESp9g2CYB7Z86" 
-                       width="100%" 
-                       height="1200" 
-                       frameborder="0" 
-                       marginheight="0" 
-                       marginwidth="0">
-                           Loading…
-                   </iframe>
-                </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="status">Where are you in the K-1 process? *</label>
-                        <select id="status" name="filing_status" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 16px; font-family: inherit;">
-                            <option value="">-- Select One --</option>
-                            <option value="preparing">Just starting - gathering documents</option>
-                            <option value="filling">Actively filling out the I-129F form</option>
-                            <option value="reviewing">Ready to submit - final review</option>
-                            <option value="other">Other (will specify below)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="why">Why do you want the K-1 Visa Kit? (Optional)</label>
-                        <textarea id="why" name="why_want_kit" placeholder="e.g., 'I'm confused about what documents to include' or 'I want to make sure I don't make mistakes'"></textarea>
-                    </div>
-                    
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="agree" name="agree_terms" required>
-                        <label for="agree" class="checkbox-label">
-                            I agree to provide honest feedback after using the guide. I understand this beta copy is for my personal use only and should not be shared. I agree to the terms of use.
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        🎉 Get FREE Access Now (Limited Spots!)
-                    </button>
-                </form>
-                
-                <p style="text-align: center; margin-top: 20px; font-size: 13px; color: #666;">
-                    🔒 Your information is safe. We'll never share your email or spam you.
-                </p>
-            </div>
-            
-            <div style="background: #e8f5e9; border-left: 4px solid #4caf50; padding: 20px; border-radius: 6px; margin: 30px 0;">
-                <h3 style="color: #2e7d32; margin-bottom: 10px;">✅ Created from Real Experience</h3>
-                <p>This guide was created by a couple who successfully completed their own K-1 visa petition and received USCIS approval. We've been through the confusion, the stress, and the uncertainty - and we created this guide to share what we learned and help others navigate the process more smoothly. However, every case is unique, and approval depends on individual circumstances.</p>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px; padding: 30px; background: #fafafa; border-radius: 8px;">
-                <h3 style="margin-bottom: 15px;">Questions?</h3>
-                <p>Email us at <a href="/cdn-cgi/l/email-protection#e1929491918e9395a18ad0978892808a8895cf828e8c" style="color: #667eea; text-decoration: none; font-weight: 600;"><span class="__cf_email__" data-cfemail="097a7c7979667b7d4962387f607a6862607d276a6664">[email&#160;protected]</span></a></p>
-            </div>
+<div class="form-section">
+    <div class="form-title">Apply to Be a Beta Tester</div>
+    
+    <form id="betaForm" action="https://formspree.io/f/mdaakaey" method="POST">
+        <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="John Smith">
         </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+        </div>
+        
+        <div class="form-group">
+            <label for="status">Where are you in the K-1 process? *</label>
+            <select id="status" name="filing_status" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                <option value="">-- Select One --</option>
+                <option value="preparing">Just starting - gathering documents</option>
+                <option value="filling">Actively filling out the I-129F form</option>
+                <option value="reviewing">Ready to submit - final review</option>
+                <option value="other">Other (will specify below)</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="why">Why do you want the K-1 Visa Kit? (Optional)</label>
+            <textarea id="why" name="why_want_kit" placeholder="e.g., 'I'm confused about what documents to include' or 'I want to make sure I don't make mistakes'"></textarea>
+        </div>
+        
+        <div class="checkbox-group">
+            <input type="checkbox" id="agree" name="agree_terms" required>
+            <label for="agree" class="checkbox-label">
+                I agree to provide honest feedback after using the guide. I understand this beta copy is for my personal use only and should not be shared. I agree to the terms of use.
+            </label>
+        </div>
+        
+        <button type="submit" class="submit-btn">
+            🎉 Get FREE Access Now (Limited Spots!)
+        </button>
+    </form>
+    
+    <p style="text-align: center; margin-top: 20px; font-size: 13px; color: #666;">
+        🔒 Your information is safe. We'll never share your email or spam you.
+    </p>
+</div>
         
         <div style="background: #f8f9fa; padding: 30px; margin: 0; border-top: 2px solid #dee2e6;">
             <div style="max-width: 700px; margin: 0 auto;">
