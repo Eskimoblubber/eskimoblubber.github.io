@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7W9YMBT569"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7W9YMBT569');
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K1 Visa Kit - File Your I-129F Petition with Confidence</title>
     <meta name="description" content="A step-by-step I-129F filing guide for U.S. citizens petitioning their foreign fiancé(e). Reduce mistakes, avoid delays, and file with confidence.">
-
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-blue: #2563eb;
@@ -27,6 +36,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Outfit', sans-serif;
             color: var(--text-dark);
@@ -40,13 +53,22 @@
             padding: 0 24px;
         }
 
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
         header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255,255,255,0.95);
-            border-bottom: 1px solid var(--border-color);
-            padding: 18px 0;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .header-content {
@@ -55,10 +77,21 @@
             align-items: center;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+
         .logo-text {
             font-size: 1.5rem;
             font-weight: 800;
-            text-decoration: none;
             color: var(--text-dark);
         }
 
@@ -66,137 +99,1322 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 26px;
+            padding: 12px 28px;
             background: var(--primary-blue);
-            color: #fff;
+            color: white;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
-            transition: all 0.25s ease;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
         }
 
         .cta-button:hover {
             background: var(--dark-blue);
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
-        .secondary-button {
+        .cta-button-secondary {
             background: transparent;
             color: var(--primary-blue);
             border: 2px solid var(--primary-blue);
+            box-shadow: none;
         }
 
-        .secondary-button:hover {
+        .cta-button-secondary:hover {
             background: var(--primary-blue);
-            color: #fff;
+            color: white;
+            transform: translateY(-2px);
         }
 
+        /* Hero Section */
         .hero {
-            padding: 80px 0;
-            background: linear-gradient(180deg, #f8fafc, #ffffff);
+            background: linear-gradient(135deg, #f8fafc 0%, #e8ecf1 100%);
+            padding: 80px 0 100px;
+            text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .hero .highlight {
+            color: var(--primary-blue);
         }
 
         .hero p {
             font-size: 1.25rem;
             color: var(--text-medium);
+            margin-bottom: 40px;
             max-width: 700px;
-            margin-bottom: 32px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero-buttons {
+        .hero .cta-group {
             display: flex;
             gap: 16px;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
-        section {
-            padding: 80px 0;
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 32px;
+            padding: 12px 20px;
+            background: white;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .trust-badge svg {
+            width: 20px;
+            height: 20px;
+            color: var(--success-green);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+            background: var(--bg-white);
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 60px;
         }
 
         .section-header h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text-dark);
         }
 
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 40px 0;
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .benefit-card {
+            padding: 32px;
+            background: var(--bg-light);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-blue);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .benefit-card p {
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            border: 3px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary-blue);
+        }
+
+        .product-card.featured {
+            border-color: var(--primary-blue);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success-green);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .product-header {
             text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .product-name {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .product-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        .product-tagline {
+            font-size: 1rem;
+            color: var(--text-medium);
+            font-style: italic;
+        }
+
+        .product-features {
+            list-style: none;
+            margin: 32px 0;
+            flex-grow: 1;
+        }
+
+        .product-features li {
+            padding: 14px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-features li:last-child {
+            border-bottom: none;
+        }
+
+        .product-features svg {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            margin-top: 2px;
+            color: var(--success-green);
+        }
+
+        .product-cta {
+            margin-top: 32px;
+        }
+
+        .product-cta .cta-button {
+            width: 100%;
+            justify-content: center;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        .comparison-note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 24px;
+            background: #ecfdf5;
+            border-radius: 12px;
+            border: 2px solid var(--success-green);
+        }
+
+        .comparison-note p {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            padding: 100px 0;
+            background: var(--bg-white);
+        }
+
+        .founder-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .founder-photo {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .founder-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .founder-text h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .founder-text p {
+            font-size: 1.15rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .founder-signature {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            color: var(--text-light);
+            margin-top: 24px;
+            font-size: 1.1rem;
+        }
+
+        /* What's Included Section */
+        .whats-included {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .included-item {
+            display: flex;
+            gap: 16px;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .included-item svg {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: var(--success-green);
+        }
+
+        .included-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-dark);
+        }
+
+        .included-item p {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+        }
+
+        /* Preview Section */
+        .preview-section {
+            padding: 100px 0;
+            background: var(--bg-white);
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .preview-card {
+            text-align: center;
+        }
+
+        .preview-image {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid var(--border-color);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .preview-card:hover .preview-image {
+            border-color: var(--primary-blue);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .preview-image svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .preview-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .preview-card p {
             font-size: 0.95rem;
             color: var(--text-light);
         }
 
-        footer a {
+        /* Comparison Section */
+        .comparison {
+            padding: 100px 0;
+            background: var(--bg-white);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .comparison-card {
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid var(--border-color);
+        }
+
+        .comparison-card.is {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-color: var(--success-green);
+        }
+
+        .comparison-card.is-not {
+            background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+            border-color: #ef4444;
+        }
+
+        .comparison-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-card.is h3 {
+            color: #047857;
+        }
+
+        .comparison-card.is-not h3 {
+            color: #dc2626;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+
+        .comparison-list li svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .step h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            color: var(--text-medium);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 32px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-item h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .faq-item p {
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            padding: 60px 0;
+            background: var(--text-dark);
+            color: white;
+        }
+
+        .disclaimer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .disclaimer h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .disclaimer p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .final-cta p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .final-cta .cta-button {
+            background: white;
             color: var(--primary-blue);
+            font-size: 1.15rem;
+            padding: 16px 48px;
+        }
+
+        .final-cta .cta-button:hover {
+            background: var(--bg-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background: var(--text-dark);
+            color: #94a3b8;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: #cbd5e1;
             text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .founder-photo {
+                max-width: 300px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
-
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 10 20 L 10 80 C 10 84 13 87 17 87 L 83 87 C 87 87 90 84 90 80 L 90 27 L 77 14 L 17 14 C 13 14 10 17 10 20 Z" 
+                              fill="#2563eb" opacity="0.1"/>
+                        <path d="M 10 20 L 10 80 C 10 84 13 87 17 87 L 83 87 C 87 87 90 84 90 80 L 90 27 L 77 14 L 17 14 C 13 14 10 17 10 20 Z" 
+                              fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 77 14 L 77 27 L 90 27" 
+                              fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 28 48 L 43 63 L 72 38" 
+                              fill="none" stroke="#10b981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="28" y1="72" x2="60" y2="72" stroke="#2563eb" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+                    </svg>
+                    <span class="logo-text">K1 Visa Kit</span>
+                </a>
+                <a href="https://k1visakit.gumroad.com/l/uprod" class="cta-button" target="_blank" rel="noopener">Get the Guide</a>
+            </div>
+        </div>
+    </header>
 
-<header>
-    <div class="container header-content">
-        <a href="/" class="logo-text">K1 Visa Kit</a>
-        <a href="https://k1visakit.gumroad.com/l/uprod" class="cta-button">Get the Guide</a>
-    </div>
-</header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>File Your I-129F Petition<br><span class="highlight">Without the Stress</span></h1>
+            <p>A step-by-step filing guide for U.S. citizens petitioning their foreign fiancé(e). Reduce mistakes, avoid delays, and file with confidence.</p>
+            <p style="font-size: 1rem; color: var(--text-light); font-style: italic; margin-top: -20px; margin-bottom: 40px;">Built from a real, successfully filed K-1 petition — refined through the actual USCIS process.</p>
+            <div class="cta-group">
+                <a href="#products" class="cta-button">
+                    <span>Choose Your Package</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="trust-badge">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>Created by someone who's been through the K-1 process</span>
+            </div>
+        </div>
+    </section>
 
-<section class="hero">
-    <div class="container">
-        <h1>File Your I-129F Petition With Confidence</h1>
-        <p>
-            A clear, step-by-step filing guide created from real K-1 visa experience —
-            designed to help you avoid mistakes, reduce stress, and submit a clean petition.
-        </p>
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why K1 Visa Kit?</h2>
+                <p>Filing the I-129F doesn't have to be overwhelming. Here's how this guide helps.</p>
+            </div>
 
-        <div class="hero-buttons">
-            <a href="https://k1visakit.gumroad.com/l/uprod" class="cta-button">
-                View Complete Kit
-            </a>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">✓</div>
+                    <h3>Avoid Costly Mistakes</h3>
+                    <p>Clear instructions help you catch errors before submission, reducing the risk of rejections or expensive Requests for Evidence (RFEs).</p>
+                </div>
 
-            <!-- FREE CHECKLIST BUTTON -->
-            <a href="/k1-visa-checklist.html" class="cta-button secondary-button">
-                Free I-129F Checklist
+                <div class="benefit-card">
+                    <div class="benefit-icon">📋</div>
+                    <h3>Stay Organized</h3>
+                    <p>Checklists and templates keep your documents structured exactly the way USCIS expects to receive them.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Know What to Include</h3>
+                    <p>No more guessing. You'll understand exactly what evidence strengthens your petition and what's unnecessary.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>File Faster</h3>
+                    <p>Stop wasting time searching forums and watching confusing YouTube videos. Get clear answers in one place.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💪</div>
+                    <h3>Build Confidence</h3>
+                    <p>Walk through each section knowing you're doing it right. No second-guessing, no sleepless nights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Package</h2>
+                <p>Both packages include our step-by-step I-129F filing guide. Choose based on how much support you want.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Essentials Package -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3 class="product-name">Essentials Filing Guide</h3>
+                        <div class="product-price">$17.76</div>
+                        <p class="product-tagline">Perfect for organized couples who prefer to prepare documents themselves</p>
+                    </div>
+
+                    <ul class="product-features">
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Complete I-129F filing guide (Jan 2026 updated)</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Required documents checklist</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Filing fee & mailing instructions</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Immigration terms glossary</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Common mistakes to avoid</span>
+                        </li>
+                    </ul>
+
+                    <div class="product-cta">
+                        <a href="https://k1visakit.gumroad.com/l/soawbz" class="cta-button cta-button-secondary" target="_blank" rel="noopener">
+                            Buy Essentials Guide
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Complete Package -->
+                <div class="product-card featured">
+                    <div class="product-badge">MOST POPULAR</div>
+                    <div class="product-header">
+                        <h3 class="product-name">Complete Filing Kit</h3>
+                        <div class="product-price">$47</div>
+                        <p class="product-tagline">Maximum confidence and time savings with all templates included</p>
+                    </div>
+
+                    <ul class="product-features">
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span><strong>Everything in Essentials Guide</strong></span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Editable PDF templates (cover letter, intent statements, disclosures)</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Packet Assembly "Sandwich Method" visual guide</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Relationship evidence organization guidance</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>K-1 timeline & flowchart</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Post-submission guidance</span>
+                        </li>
+                    </ul>
+
+                    <div class="product-cta">
+                        <a href="https://k1visakit.gumroad.com/l/uprod" class="cta-button" target="_blank" rel="noopener">
+                            Buy Complete Kit
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison-note">
+                <p>💡 Most couples choose the Complete Filing Kit for peace of mind</p>
+            </div>
+
+            <!-- USCIS Transparency Link -->
+            <div style="text-align: center; margin-top: 60px; padding: 24px 32px; background: white; border-radius: 12px; border: 2px solid var(--border-color); max-width: 700px; margin-left: auto; margin-right: auto;">
+                <p style="color: var(--text-medium); font-size: 1rem; margin: 0; line-height: 1.7;">
+                    <strong style="color: var(--text-dark);">Important:</strong> This guide is designed to work alongside the official USCIS forms. 
+                    <a href="https://www.uscis.gov/i-129f" target="_blank" rel="noopener" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--primary-blue);">
+                        Visit USCIS.gov for the current I-129F form and official instructions →
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder-section">
+        <div class="container">
+            <div class="founder-content">
+                <div class="founder-photo">
+                    <img src="founder-photo.jpg" alt="Patrick and Ann - K1 Visa Kit Founders" width="300" height="300">
+                </div>
+                <div class="founder-text">
+                    <h3>Why K1VisaKit Exists</h3>
+                    <p>We went through the K-1 visa process ourselves and experienced how confusing and stressful it can be to file something this important without clear guidance.</p>
+                    <p>K1VisaKit was created to share what we learned — real, practical information — so other couples can file with confidence and avoid unnecessary mistakes.</p>
+                    <p>This isn't theoretical advice. Every template, every checklist, every tip came from our actual experience navigating USCIS requirements and successfully getting approved.</p>
+                    <p class="founder-signature">— Patrick & Ann</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; padding: 20px; background: white; border-radius: 12px; border: 1px solid var(--border-color); max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p style="color: var(--text-medium); font-size: 1rem; margin: 0;">
+                    <svg style="display: inline; width: 18px; height: 18px; vertical-align: middle; color: var(--success-green); margin-right: 8px;" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Early users are currently filing with this guide — testimonials coming soon.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section class="preview-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Preview What You'll Get</h2>
+                <p>A look inside the K1 Visa Kit filing package</p>
+            </div>
+
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="blur1">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+                                </filter>
+                            </defs>
+                            <rect width="400" height="500" fill="#ffffff"/>
+                            <rect x="30" y="30" width="340" height="440" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+                            <rect x="50" y="50" width="200" height="30" fill="#2563eb" opacity="0.3" filter="url(#blur1)"/>
+                            <rect x="270" y="50" width="80" height="30" fill="#10b981" opacity="0.3" filter="url(#blur1)"/>
+                            <rect x="50" y="100" width="300" height="12" fill="#1e293b" opacity="0.15" filter="url(#blur1)"/>
+                            <rect x="50" y="125" width="280" height="12" fill="#1e293b" opacity="0.15" filter="url(#blur1)"/>
+                            <rect x="50" y="150" width="290" height="12" fill="#1e293b" opacity="0.15" filter="url(#blur1)"/>
+                            <rect x="50" y="190" width="200" height="18" fill="#2563eb" opacity="0.4" filter="url(#blur1)"/>
+                            <rect x="50" y="225" width="300" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur1)"/>
+                            <rect x="50" y="245" width="285" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur1)"/>
+                            <rect x="50" y="265" width="295" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur1)"/>
+                            <rect x="50" y="285" width="275" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur1)"/>
+                            <rect x="50" y="320" width="180" height="18" fill="#2563eb" opacity="0.4" filter="url(#blur1)"/>
+                            <rect x="50" y="355" width="300" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur1)"/>
+                            <rect x="50" y="375" width="290" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur1)"/>
+                            <rect x="50" y="395" width="280" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur1)"/>
+                        </svg>
+                    </div>
+                    <h4>Complete Filing Guide</h4>
+                    <p>154-page walkthrough</p>
+                </div>
+
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="blur2">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+                                </filter>
+                            </defs>
+                            <rect width="400" height="500" fill="#ffffff"/>
+                            <rect x="30" y="30" width="340" height="440" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+                            <rect x="50" y="50" width="250" height="28" fill="#10b981" opacity="0.4" filter="url(#blur2)"/>
+                            <circle cx="60" cy="110" r="8" fill="#10b981" opacity="0.3" filter="url(#blur2)"/>
+                            <rect x="80" y="105" width="250" height="10" fill="#1e293b" opacity="0.15" filter="url(#blur2)"/>
+                            <circle cx="60" cy="140" r="8" fill="#10b981" opacity="0.3" filter="url(#blur2)"/>
+                            <rect x="80" y="135" width="230" height="10" fill="#1e293b" opacity="0.15" filter="url(#blur2)"/>
+                            <circle cx="60" cy="170" r="8" fill="#10b981" opacity="0.3" filter="url(#blur2)"/>
+                            <rect x="80" y="165" width="240" height="10" fill="#1e293b" opacity="0.15" filter="url(#blur2)"/>
+                            <circle cx="60" cy="200" r="8" fill="#10b981" opacity="0.3" filter="url(#blur2)"/>
+                            <rect x="80" y="195" width="260" height="10" fill="#1e293b" opacity="0.15" filter="url(#blur2)"/>
+                            <rect x="50" y="240" width="220" height="24" fill="#2563eb" opacity="0.35" filter="url(#blur2)"/>
+                            <circle cx="60" cy="290" r="8" fill="#10b981" opacity="0.3" filter="url(#blur2)"/>
+                            <rect x="80" y="285" width="250" height="10" fill="#1e293b" opacity="0.15" filter="url(#blur2)"/>
+                            <circle cx="60" cy="320" r="8" fill="#10b981" opacity="0.3" filter="url(#blur2)"/>
+                            <rect x="80" y="315" width="235" height="10" fill="#1e293b" opacity="0.15" filter="url(#blur2)"/>
+                        </svg>
+                    </div>
+                    <h4>Document Checklists</h4>
+                    <p>Never miss anything</p>
+                </div>
+
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="blur3">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+                                </filter>
+                            </defs>
+                            <rect width="400" height="500" fill="#ffffff"/>
+                            <rect x="30" y="30" width="340" height="440" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+                            <rect x="50" y="50" width="180" height="22" fill="#2563eb" opacity="0.35" filter="url(#blur3)"/>
+                            <rect x="240" y="53" width="110" height="16" fill="#64748b" opacity="0.25" filter="url(#blur3)"/>
+                            <rect x="50" y="95" width="120" height="12" fill="#1e293b" opacity="0.15" filter="url(#blur3)"/>
+                            <rect x="50" y="120" width="200" height="12" fill="#1e293b" opacity="0.15" filter="url(#blur3)"/>
+                            <rect x="50" y="140" width="180" height="12" fill="#1e293b" opacity="0.15" filter="url(#blur3)"/>
+                            <rect x="50" y="160" width="190" height="12" fill="#1e293b" opacity="0.15" filter="url(#blur3)"/>
+                            <rect x="50" y="200" width="300" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur3)"/>
+                            <rect x="50" y="218" width="295" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur3)"/>
+                            <rect x="50" y="236" width="290" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur3)"/>
+                            <rect x="50" y="254" width="298" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur3)"/>
+                            <rect x="50" y="272" width="280" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur3)"/>
+                            <rect x="50" y="300" width="295" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur3)"/>
+                            <rect x="50" y="318" width="300" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur3)"/>
+                            <rect x="50" y="336" width="285" height="10" fill="#1e293b" opacity="0.12" filter="url(#blur3)"/>
+                            <rect x="50" y="390" width="150" height="2" fill="#1e293b" opacity="0.2"/>
+                            <rect x="50" y="405" width="100" height="10" fill="#1e293b" opacity="0.15" filter="url(#blur3)"/>
+                        </svg>
+                    </div>
+                    <h4>Editable Templates</h4>
+                    <p>Ready-to-use letters</p>
+                </div>
+
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="blur4">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+                                </filter>
+                            </defs>
+                            <rect width="400" height="500" fill="#ffffff"/>
+                            <rect x="30" y="30" width="340" height="440" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+                            <rect x="50" y="50" width="280" height="26" fill="#2563eb" opacity="0.4" filter="url(#blur4)"/>
+                            <rect x="100" y="110" width="200" height="40" fill="#e0e7ff" stroke="#2563eb" stroke-width="2" opacity="0.6" filter="url(#blur4)"/>
+                            <rect x="90" y="160" width="220" height="40" fill="#dbeafe" stroke="#2563eb" stroke-width="2" opacity="0.6" filter="url(#blur4)"/>
+                            <rect x="80" y="210" width="240" height="40" fill="#bfdbfe" stroke="#2563eb" stroke-width="2" opacity="0.6" filter="url(#blur4)"/>
+                            <rect x="70" y="260" width="260" height="40" fill="#93c5fd" stroke="#2563eb" stroke-width="2" opacity="0.6" filter="url(#blur4)"/>
+                            <path d="M 350 120 L 370 130 L 350 140" fill="none" stroke="#10b981" stroke-width="3" opacity="0.5"/>
+                            <path d="M 350 170 L 370 180 L 350 190" fill="none" stroke="#10b981" stroke-width="3" opacity="0.5"/>
+                            <path d="M 350 220 L 370 230 L 350 240" fill="none" stroke="#10b981" stroke-width="3" opacity="0.5"/>
+                            <rect x="50" y="330" width="120" height="12" fill="#1e293b" opacity="0.15" filter="url(#blur4)"/>
+                            <rect x="50" y="355" width="140" height="12" fill="#1e293b" opacity="0.15" filter="url(#blur4)"/>
+                            <rect x="50" y="380" width="110" height="12" fill="#1e293b" opacity="0.15" filter="url(#blur4)"/>
+                        </svg>
+                    </div>
+                    <h4>Packet Assembly</h4>
+                    <p>Visual stacking guide</p>
+                </div>
+
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="blur5">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+                                </filter>
+                            </defs>
+                            <rect width="400" height="500" fill="#ffffff"/>
+                            <rect x="30" y="30" width="340" height="440" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+                            <rect x="50" y="50" width="220" height="24" fill="#2563eb" opacity="0.4" filter="url(#blur5)"/>
+                            <circle cx="80" cy="120" r="12" fill="#10b981" opacity="0.4"/>
+                            <rect x="105" y="110" width="200" height="20" fill="#1e293b" opacity="0.15" filter="url(#blur5)"/>
+                            <line x1="80" y1="132" x2="80" y2="168" stroke="#64748b" stroke-width="3" opacity="0.3"/>
+                            <circle cx="80" cy="180" r="12" fill="#10b981" opacity="0.4"/>
+                            <rect x="105" y="170" width="180" height="20" fill="#1e293b" opacity="0.15" filter="url(#blur5)"/>
+                            <line x1="80" y1="192" x2="80" y2="228" stroke="#64748b" stroke-width="3" opacity="0.3"/>
+                            <circle cx="80" cy="240" r="12" fill="#10b981" opacity="0.4"/>
+                            <rect x="105" y="230" width="190" height="20" fill="#1e293b" opacity="0.15" filter="url(#blur5)"/>
+                            <line x1="80" y1="252" x2="80" y2="288" stroke="#64748b" stroke-width="3" opacity="0.3"/>
+                            <circle cx="80" cy="300" r="12" fill="#10b981" opacity="0.4"/>
+                            <rect x="105" y="290" width="210" height="20" fill="#1e293b" opacity="0.15" filter="url(#blur5)"/>
+                            <line x1="80" y1="312" x2="80" y2="348" stroke="#64748b" stroke-width="3" opacity="0.3"/>
+                            <circle cx="80" cy="360" r="12" fill="#2563eb" opacity="0.5"/>
+                            <rect x="105" y="350" width="170" height="20" fill="#1e293b" opacity="0.15" filter="url(#blur5)"/>
+                        </svg>
+                    </div>
+                    <h4>Timeline Flowchart</h4>
+                    <p>What happens next</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 40px; color: var(--text-light); font-size: 0.95rem; font-style: italic;">
+                Preview images are intentionally blurred to protect the guide's content
+            </p>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2>What This Is & What This Isn't</h2>
+                <p>Let's be clear about what you're getting—and what you're not.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card is">
+                    <h3>
+                        <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        This IS:
+                    </h3>
+                    <ul class="comparison-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#047857">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            A detailed filing guide to help you complete the I-129F yourself
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#047857">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            An organizational system to prevent costly mistakes
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#047857">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Created by someone who successfully filed their own K-1
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#047857">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Designed to work alongside the official USCIS forms (not a replacement)
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#047857">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            An educational resource to help you file correctly
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card is-not">
+                    <h3>
+                        <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        This is NOT:
+                    </h3>
+                    <ul class="comparison-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#dc2626">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            Legal advice (I'm not an immigration attorney)
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#dc2626">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            A guarantee of approval (no one can promise that)
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#dc2626">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            A replacement for an attorney in complex cases
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#dc2626">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            Affiliated with USCIS or any government agency
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#dc2626">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            A case review or personalized filing service
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Get started in minutes. File with confidence in days.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Purchase on Gumroad</h3>
+                    <p>Choose the package that fits your needs. Instant access after checkout.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Download Your Files</h3>
+                    <p>Get the complete guide, templates, and checklists delivered to your email.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Follow the Guide</h3>
+                    <p>Work through the I-129F form step by step alongside the official USCIS instructions.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Assemble & File</h3>
+                    <p>Use the packet assembly guide to organize your documents and submit with confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>Is this legal advice?</h4>
+                    <p>No. This is an educational resource created by someone who has completed the K-1 process. It is not legal advice, and I am not an immigration attorney. If you have a complex case or legal questions, consult with a licensed immigration lawyer.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will this guarantee my petition is approved?</h4>
+                    <p>No one can guarantee approval—not attorneys, not filing services, and not this guide. USCIS makes all final decisions. What this guide does is help you file a complete, well-organized petition that reduces common mistakes.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is this guide up to date?</h4>
+                    <p>Yes. The guide is based on the current I-129F form and USCIS requirements as of January 2026. If USCIS updates the form, you'll receive free updates to the guide.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is this only for K-1 visas?</h4>
+                    <p>Yes, this guide is specifically for the I-129F petition for K-1 fiancé(e) visas. It does not cover K-3 spousal visas, adjustment of status, or other visa types.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What happens after I buy?</h4>
+                    <p>You'll receive instant access to download all files via Gumroad. You can download the guide, templates, and checklists immediately and start working through your petition.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I get a refund?</h4>
+                    <p>All sales are final. This is a digital product with instant access upon purchase. Once you download the materials, we cannot issue refunds. Please review the product details carefully before purchasing.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Do I still need to download the official USCIS forms?</h4>
+                    <p>Yes. This guide works alongside the official I-129F form from USCIS. You'll need to download the form from uscis.gov and use this guide to help you complete it correctly.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What if I need help after purchasing?</h4>
+                    <p>The guide is designed to be self-explanatory, but if you have questions about using the materials, you can contact support. Please note that I cannot provide case-specific legal advice or personalized filing assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+        <div class="container">
+            <div class="disclaimer-content">
+                <h3>Important Legal Disclaimer</h3>
+                <p>K1 Visa Kit is an educational resource and is not a law firm. The information provided in this guide is not legal advice and does not create an attorney-client relationship. This guide is designed to help you understand and organize the I-129F filing process, but it cannot replace the advice of a licensed immigration attorney.</p>
+                <p>K1 Visa Kit is not affiliated with, endorsed by, or connected to U.S. Citizenship and Immigration Services (USCIS), the U.S. Department of State, or any government agency.</p>
+                <p>We do not guarantee that your petition will be approved. USCIS makes all decisions regarding visa petitions. Results vary based on individual circumstances.</p>
+                <p>If you have a complex immigration case, prior denials, criminal history, or any concerns about your eligibility, we strongly recommend consulting with a licensed immigration attorney.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to File with Confidence?</h2>
+            <p>Choose the package that's right for you and get started today.</p>
+            <a href="#products" class="cta-button">
+                <span>View Packages</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
             </a>
         </div>
-    </div>
-</section>
+    </section>
 
-<section>
-    <div class="container section-header">
-        <h2>Not Ready to Buy Yet?</h2>
-        <p style="color: var(--text-medium); max-width: 700px; margin: 0 auto;">
-            Start with our free, section-by-section I-129F checklist to make sure your form is complete before filing.
-        </p>
-
-        <div style="margin-top: 28px;">
-            <a href="/k1-visa-checklist.html" class="cta-button secondary-button">
-                View the Free Checklist
-            </a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 K1 Visa Kit. Not affiliated with USCIS. All rights reserved.</p>
+            <p style="margin-top: 12px;">
+                <a href="mailto:support@k1visakit.com">Contact Support</a> | 
+                <a href="#disclaimer">Legal Disclaimer</a>
+            </p>
         </div>
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        <p>&copy; 2026 K1 Visa Kit. Not affiliated with USCIS.</p>
-        <p style="margin-top: 10px;">
-            <a href="mailto:support@k1visakit.com">Contact Support</a>
-        </p>
-    </div>
-</footer>
-
+    </footer>
 </body>
+
 </html>
