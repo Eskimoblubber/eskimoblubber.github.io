@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K1 Visa Form Generator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2a4365;
+            --primary-light: #4a5f85;
+            --accent: #d97706;
+            --success: #059669;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Work Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Password Screen */
+        .password-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+        
+        .password-screen.hidden {
+            display: none;
+        }
+        
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        
+        .password-box {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 48px;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .password-box h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        input[type="password"],
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.2s;
+            background: var(--surface);
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 67, 101, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            width: 100%;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(42, 67, 101, 0.3);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-secondary {
+            background: var(--border);
+            color: var(--text);
+            margin-right: 12px;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+        
+        .btn-download {
+            background: var(--success);
+            color: white;
+            margin: 8px;
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-download:hover {
+            background: #047857;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+        }
+        
+        .error-message {
+            background: #fef2f2;
+            border: 2px solid #ef4444;
+            color: #991b1b;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        /* Form Screen */
+        .form-screen {
+            display: none;
+        }
+        
+        .form-screen.active {
+            display: block;
+        }
+        
+        .form-header {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .form-header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        
+        .form-header p {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+        
+        /* Progress Bar */
+        .progress-bar {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+        
+        .progress-line {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+            z-index: 1;
+        }
+        
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .progress-step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 3px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            transition: all 0.3s;
+        }
+        
+        .progress-step.active .progress-step-circle {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        
+        .progress-step.completed .progress-step-circle {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+        
+        .progress-step-label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .progress-step.active .progress-step-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Form Steps */
+        .form-step {
+            display: none;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+        }
+        
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .form-step h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .form-step-description {
+            color: var(--text-light);
+            margin-bottom: 32px;
+            font-size: 15px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .form-row.single {
+            grid-template-columns: 1fr;
+        }
+        
+        .input-with-button {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        
+        .input-with-button input {
+            flex: 1;
+        }
+        
+        .btn-link {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 14px 20px;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+        
+        .btn-link:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .help-text {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 6px;
+            font-style: italic;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: start;
+            margin: 20px 0;
+        }
+        
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            margin-top: 2px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .checkbox-label {
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--text);
+            font-weight: 400;
+        }
+        
+        .radio-group {
+            margin: 16px 0;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .radio-option:hover {
+            border-color: var(--primary);
+            background: #f8fafc;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 2px solid var(--border);
+        }
+        
+        .optional-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+        }
+        
+        /* Loading and Success States */
+        .loading-screen,
+        .success-screen {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .loading-screen.active,
+        .success-screen.active {
+            display: block;
+        }
+        
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 32px;
+            border: 6px solid var(--border);
+            border-top: 6px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .success-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+        }
+        
+        .success-screen h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 32px;
+            color: var(--success);
+            margin-bottom: 16px;
+        }
+        
+        .success-screen p {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .password-box {
+                padding: 32px 24px;
+            }
+            
+            .form-step {
+                padding: 24px;
+            }
+            
+            .progress-step-label {
+                font-size: 10px;
+            }
+            
+            .progress-step-circle {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+        }
+
+        /* Print Styles for Generated Documents */
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- PASSWORD SCREEN -->
+        <div id="passwordScreen" class="password-screen">
+            <div class="logo">K1 Visa Kit</div>
+            <p class="subtitle">Form Generator</p>
+            
+            <div class="password-box">
+                <h2>Enter Your Access Code</h2>
+                <p style="color: var(--text-light); margin-bottom: 24px;">
+                    Enter the access code provided with your K1 Visa Kit to generate your personalized documents.
+                </p>
+                
+                <form id="passwordForm">
+                    <div class="form-group">
+                        <label for="password">Access Code</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            placeholder="K1V-XXXXXXXXXX"
+                            required
+                        >
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        Unlock Form Generator
+                    </button>
+                    
+                    <div id="passwordError" class="error-message">
+                        Invalid access code. Please check your password and try again.
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- FORM SCREEN -->
+        <div id="formScreen" class="form-screen">
+            <div class="form-header">
+                <h1>K1 Visa Document Generator</h1>
+                <p>Fill out the information below and we'll generate your supporting documents, ready to print and sign.</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-steps">
+                    <div class="progress-line" id="progressLine"></div>
+                    <div class="progress-step active" data-step="1">
+                        <div class="progress-step-circle">1</div>
+                        <div class="progress-step-label">Basic Info</div>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="progress-step-circle">2</div>
+                        <div class="progress-step-label">Meeting Details</div>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="progress-step-circle">3</div>
+                        <div class="progress-step-label">Optional Info</div>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="progress-step-circle">4</div>
+                        <div class="progress-step-label">Review & Generate</div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="mainForm">
+                <!-- STEP 1: Basic Information -->
+                <div class="form-step active" data-step="1">
+                    <h2>Basic Information</h2>
+                    <p class="form-step-description">
+                        Enter the petitioner and beneficiary information as it appears on official documents.
+                    </p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="petitionerName">Petitioner Full Name *</label>
+                            <input 
+                                type="text" 
+                                id="petitionerName" 
+                                name="petitionerName"
+                                placeholder="John Michael Smith"
+                                required
+                            >
+                            <div class="help-text">U.S. Citizen filing the petition</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="beneficiaryName">Beneficiary Full Name *</label>
+                            <input 
+                                type="text" 
+                                id="beneficiaryName" 
+                                name="beneficiaryName"
+                                placeholder="Maria Elena Garcia"
+                                required
+                            >
+                            <div class="help-text">Your fiancé(e)</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="filingDate">Filing Date *</label>
+                            <input 
+                                type="date" 
+                                id="filingDate" 
+                                name="filingDate"
+                                required
+                            >
+                            <div class="help-text">Date you plan to mail your petition (or today)</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="filingFee">I-129F Filing Fee *</label>
+                            <div class="input-with-button">
+                                <input 
+                                    type="text" 
+                                    id="filingFee" 
+                                    name="filingFee"
+                                    value="$675"
+                                    required
+                                >
+                                <button 
+                                    type="button" 
+                                    class="btn btn-link"
+                                    onclick="window.open('https://www.uscis.gov/i-129f', '_blank')"
+                                >
+                                    Check Current Fee
+                                </button>
+                            </div>
+                            <div class="help-text">Displayed fee is current as of January 2026. Always verify before filing.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <div></div>
+                        <button type="button" class="btn btn-primary" onclick="nextStep()">
+                            Next: Meeting Details →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Meeting Details -->
+                <div class="form-step" data-step="2">
+                    <h2>Meeting Information</h2>
+                    <p class="form-step-description">
+                        Provide details about when and where you met in person (required by USCIS).
+                    </p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="meetingDate">Date You First Met In Person *</label>
+                            <input 
+                                type="date" 
+                                id="meetingDate" 
+                                name="meetingDate"
+                                required
+                            >
+                            <div class="help-text">Must be within 2 years of filing</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="meetingLocation">Where You Met *</label>
+                            <input 
+                                type="text" 
+                                id="meetingLocation" 
+                                name="meetingLocation"
+                                placeholder="Paris, France"
+                                spellcheck="true"
+                                required
+                            >
+                            <div class="help-text">City and country</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row single">
+                        <div class="form-group">
+                            <label>
+                                Did you meet in person on additional occasions?
+                            </label>
+                            <div class="checkbox-group">
+                                <input 
+                                    type="checkbox" 
+                                    id="hasAdditionalVisits" 
+                                    name="hasAdditionalVisits"
+                                    onchange="toggleAdditionalVisits()"
+                                >
+                                <label for="hasAdditionalVisits" class="checkbox-label">
+                                    Yes, we met in person on other dates (may help strengthen your petition)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="additionalVisitsFields" style="display: none;">
+                        <div style="background: #f1f5f9; padding: 20px; border-radius: 8px; margin-top: 16px;">
+                            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px; color: var(--primary);">
+                                Additional In-Person Meetings
+                            </h3>
+                            <p style="font-size: 14px; color: var(--text-light); margin-bottom: 20px;">
+                                List up to 3 additional times you met in person. This can strengthen your petition by showing ongoing relationship.
+                            </p>
+
+                            <!-- Visit 2 -->
+                            <div class="form-row" style="margin-bottom: 20px;">
+                                <div class="form-group">
+                                    <label for="meetingDate2">Visit 2 - Date</label>
+                                    <input 
+                                        type="date" 
+                                        id="meetingDate2" 
+                                        name="meetingDate2"
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <label for="meetingLocation2">Visit 2 - Location</label>
+                                    <input 
+                                        type="text" 
+                                        id="meetingLocation2" 
+                                        name="meetingLocation2"
+                                        placeholder="Tokyo, Japan"
+                                        spellcheck="true"
+                                    >
+                                </div>
+                            </div>
+
+                            <!-- Visit 3 -->
+                            <div class="form-row" style="margin-bottom: 20px;">
+                                <div class="form-group">
+                                    <label for="meetingDate3">Visit 3 - Date</label>
+                                    <input 
+                                        type="date" 
+                                        id="meetingDate3" 
+                                        name="meetingDate3"
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <label for="meetingLocation3">Visit 3 - Location</label>
+                                    <input 
+                                        type="text" 
+                                        id="meetingLocation3" 
+                                        name="meetingLocation3"
+                                        placeholder="New York, USA"
+                                        spellcheck="true"
+                                    >
+                                </div>
+                            </div>
+
+                            <!-- Visit 4 -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="meetingDate4">Visit 4 - Date</label>
+                                    <input 
+                                        type="date" 
+                                        id="meetingDate4" 
+                                        name="meetingDate4"
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <label for="meetingLocation4">Visit 4 - Location</label>
+                                    <input 
+                                        type="text" 
+                                        id="meetingLocation4" 
+                                        name="meetingLocation4"
+                                        placeholder="London, UK"
+                                        spellcheck="true"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="help-text" style="margin-top: 12px;">
+                                Only fill in the visits that occurred. Leave blank if you didn't have that many meetings.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row single" style="margin-top: 24px;">
+                        <div class="form-group">
+                            <label for="howMet">How Did You Meet? *</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input 
+                                        type="radio" 
+                                        id="metNaturally" 
+                                        name="howMet" 
+                                        value="natural"
+                                        checked
+                                    >
+                                    <label for="metNaturally" class="checkbox-label">
+                                        We met naturally (friends, work, travel, social media, dating app, etc.)
+                                    </label>
+                                </div>
+                                <div class="radio-option">
+                                    <input 
+                                        type="radio" 
+                                        id="metWebsite" 
+                                        name="howMet" 
+                                        value="website"
+                                    >
+                                    <label for="metWebsite" class="checkbox-label">
+                                        We met through a website or service (not an International Marriage Broker)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="help-text">This information is required for the IMB Disclosure Statement</div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep()">
+                            Next: Optional Information →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Optional Information -->
+                <div class="form-step" data-step="3">
+                    <h2>Optional Information</h2>
+                    <p class="form-step-description">
+                        These sections are only needed if they apply to your situation. If unsure, you may leave them unchecked.
+                    </p>
+
+                    <div class="form-row single">
+                        <div class="form-group">
+                            <label>
+                                Do you need a Name Discrepancy Statement?
+                                <span class="optional-badge">Optional</span>
+                            </label>
+                            <div class="checkbox-group">
+                                <input 
+                                    type="checkbox" 
+                                    id="hasNameDiscrepancy" 
+                                    name="hasNameDiscrepancy"
+                                    onchange="toggleNameDiscrepancy()"
+                                >
+                                <label for="hasNameDiscrepancy" class="checkbox-label">
+                                    Yes, there are different names on documents that need to be explained
+                                </label>
+                            </div>
+                            <div class="help-text">
+                                Check this if you or your fiancé(e) have used different names on documents (maiden name, nickname, legal name change, etc.)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="nameDiscrepancyFields" style="display: none;">
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label for="nameDiscrepancyPerson">Who has the name discrepancy? *</label>
+                                <select id="nameDiscrepancyPerson" name="nameDiscrepancyPerson">
+                                    <option value="">-- Select One --</option>
+                                    <option value="petitioner">Petitioner (U.S. Citizen)</option>
+                                    <option value="beneficiary">Beneficiary (Fiancé/e)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label for="differentNames">List All Different Names Used *</label>
+                                <textarea 
+                                    id="differentNames" 
+                                    name="differentNames"
+                                    placeholder="Example:&#10;• Maria Elena Garcia (current legal name)&#10;• Maria Garcia (maiden name)&#10;• Elena Garcia (used on school documents)"
+                                ></textarea>
+                                <div class="help-text">List each name on a separate line with a bullet point</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label for="discrepancyReason">Reason for Name Discrepancy *</label>
+                                <textarea 
+                                    id="discrepancyReason" 
+                                    name="discrepancyReason"
+                                    placeholder="Example: The beneficiary legally changed her name from her maiden name (Garcia) to her married name (Martinez) following her previous marriage, which ended in divorce in 2020."
+                                ></textarea>
+                                <div class="help-text">Explain why the names are different</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep()">
+                            Next: Review & Generate →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Review and Generate -->
+                <div class="form-step" data-step="4">
+                    <h2>Review Your Information</h2>
+                    <p class="form-step-description">
+                        Please review the information below. When ready, click "Generate Documents" to create your documents.
+                    </p>
+
+                    <div id="reviewContent" style="background: #f8fafc; padding: 24px; border-radius: 8px; margin-bottom: 24px;">
+                        <!-- Review content will be inserted here -->
+                    </div>
+
+                    <div class="checkbox-group" style="margin: 24px 0;">
+                        <input 
+                            type="checkbox" 
+                            id="confirmAccuracy" 
+                            name="confirmAccuracy"
+                            required
+                        >
+                        <label for="confirmAccuracy" class="checkbox-label">
+                            <strong>I confirm that all information above is accurate and matches my official documents to the best of my knowledge.</strong>
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                            ← Back to Edit
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="generateDocuments()" id="generateBtn">
+                            🎉 Generate My Documents
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Loading Screen -->
+            <div id="loadingScreen" class="loading-screen">
+                <div class="loading-spinner"></div>
+                <h2 style="font-family: 'Crimson Pro', serif; font-size: 28px; color: var(--primary); margin-bottom: 16px;">
+                    Generating Your Documents...
+                </h2>
+                <p style="color: var(--text-light);">
+                    This will take just a moment. Please don't close this window.
+                </p>
+            </div>
+
+            <!-- Success Screen -->
+            <div id="successScreen" class="success-screen">
+                <div class="success-icon">✅</div>
+                <h2>Documents Generated Successfully!</h2>
+                <p>
+                    Your personalized K1 visa documents are ready. Click each button to open in a new tab, then print or save as PDF.
+                </p>
+                <div class="download-buttons" id="downloadButtons">
+                    <!-- Download buttons will be added here -->
+                </div>
+                <p style="margin-top: 24px; font-size: 14px; color: var(--text-light);">
+                    Print, sign, and include these documents with your I-129F petition package.
+                </p>
+                <p style="margin-top: 12px; font-size: 12px; color: var(--text-light); font-style: italic;">
+                    This tool provides document preparation assistance and does not constitute legal advice.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Current step tracking
+        let currentStep = 1;
+        const totalSteps = 4;
+        
+        // Store generated documents
+        let generatedDocs = [];
+
+        // Set default filing date to today
+        window.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('filingDate').value = today;
+        });
+
+        // Password validation
+        document.getElementById('passwordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            
+            if (password.startsWith('K1V-') || password === 'test') {
+                document.getElementById('passwordScreen').classList.add('hidden');
+                document.getElementById('formScreen').classList.add('active');
+            } else {
+                document.getElementById('passwordError').classList.add('show');
+            }
+        });
+
+        // Navigation functions
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+                const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+                let isValid = true;
+
+                inputs.forEach(input => {
+                    if (!input.value || (input.type === 'checkbox' && !input.checked && input.hasAttribute('required'))) {
+                        isValid = false;
+                        input.style.borderColor = '#ef4444';
+                    } else {
+                        input.style.borderColor = '';
+                    }
+                });
+
+                if (!isValid) {
+                    alert('Please fill in all required fields before continuing.');
+                    return;
+                }
+
+                currentStep++;
+                updateStepDisplay();
+                
+                if (currentStep === 4) {
+                    populateReview();
+                }
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepDisplay();
+            }
+        }
+
+        function updateStepDisplay() {
+            document.querySelectorAll('.form-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+                
+                if (stepNum === currentStep) {
+                    step.classList.add('active');
+                } else if (stepNum < currentStep) {
+                    step.classList.add('completed');
+                }
+            });
+
+            const progressPercent = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            document.getElementById('progressLine').style.width = progressPercent + '%';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle additional visits
+        function toggleAdditionalVisits() {
+            const checkbox = document.getElementById('hasAdditionalVisits');
+            const fields = document.getElementById('additionalVisitsFields');
+            
+            if (checkbox.checked) {
+                fields.style.display = 'block';
+                fields.style.animation = 'fadeIn 0.3s ease';
+            } else {
+                fields.style.display = 'none';
+                for (let i = 2; i <= 4; i++) {
+                    document.getElementById(`meetingDate${i}`).value = '';
+                    document.getElementById(`meetingLocation${i}`).value = '';
+                }
+            }
+        }
+
+        // Toggle name discrepancy fields
+        function toggleNameDiscrepancy() {
+            const checkbox = document.getElementById('hasNameDiscrepancy');
+            const fields = document.getElementById('nameDiscrepancyFields');
+            
+            if (checkbox.checked) {
+                fields.style.display = 'block';
+                fields.querySelectorAll('input, select, textarea').forEach(el => {
+                    el.setAttribute('required', 'required');
+                });
+            } else {
+                fields.style.display = 'none';
+                fields.querySelectorAll('input, select, textarea').forEach(el => {
+                    el.removeAttribute('required');
+                    el.value = '';
+                });
+            }
+        }
+
+        // Get form data
+        function getFormData() {
+            const data = {
+                petitionerName: document.getElementById('petitionerName').value,
+                beneficiaryName: document.getElementById('beneficiaryName').value,
+                filingDate: document.getElementById('filingDate').value,
+                filingFee: document.getElementById('filingFee').value,
+                meetingDate: document.getElementById('meetingDate').value,
+                meetingLocation: document.getElementById('meetingLocation').value,
+                hasAdditionalVisits: document.getElementById('hasAdditionalVisits').checked,
+                additionalVisits: [],
+                howMet: document.querySelector('input[name="howMet"]:checked').value,
+                hasNameDiscrepancy: document.getElementById('hasNameDiscrepancy').checked,
+                nameDiscrepancyPerson: document.getElementById('nameDiscrepancyPerson').value,
+                differentNames: document.getElementById('differentNames').value,
+                discrepancyReason: document.getElementById('discrepancyReason').value
+            };
+
+            if (data.hasAdditionalVisits) {
+                for (let i = 2; i <= 4; i++) {
+                    const date = document.getElementById(`meetingDate${i}`).value;
+                    const location = document.getElementById(`meetingLocation${i}`).value;
+                    
+                    if (date && location) {
+                        data.additionalVisits.push({ date, location });
+                    }
+                }
+            }
+
+            return data;
+        }
+
+        // Format date for display
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        // Populate review content
+        function populateReview() {
+            const formData = getFormData();
+            let html = '<div style="display: grid; gap: 20px;">';
+
+            html += `
+                <div>
+                    <h3 style="font-weight: 600; margin-bottom: 12px; color: var(--primary);">Basic Information</h3>
+                    <p><strong>Petitioner:</strong> ${formData.petitionerName}</p>
+                    <p><strong>Beneficiary:</strong> ${formData.beneficiaryName}</p>
+                    <p><strong>Filing Date:</strong> ${formatDate(formData.filingDate)}</p>
+                    <p><strong>Filing Fee:</strong> ${formData.filingFee}</p>
+                </div>
+            `;
+
+            html += `
+                <div>
+                    <h3 style="font-weight: 600; margin-bottom: 12px; color: var(--primary);">Meeting Information</h3>
+                    <p><strong>First Meeting Date:</strong> ${formatDate(formData.meetingDate)}</p>
+                    <p><strong>First Meeting Location:</strong> ${formData.meetingLocation}</p>
+            `;
+
+            if (formData.hasAdditionalVisits && formData.additionalVisits.length > 0) {
+                html += '<p style="margin-top: 12px;"><strong>Additional In-Person Meetings:</strong></p><ul style="margin-left: 20px;">';
+                formData.additionalVisits.forEach((visit, index) => {
+                    html += `<li>Visit ${index + 2}: ${formatDate(visit.date)} in ${visit.location}</li>`;
+                });
+                html += '</ul>';
+            }
+
+            html += `
+                    <p style="margin-top: 12px;"><strong>How Met:</strong> ${formData.howMet === 'natural' ? 'Met naturally' : 'Met through website/service'}</p>
+                </div>
+            `;
+
+            if (formData.hasNameDiscrepancy) {
+                html += `
+                    <div>
+                        <h3 style="font-weight: 600; margin-bottom: 12px; color: var(--primary);">Name Discrepancy</h3>
+                        <p><strong>Person:</strong> ${formData.nameDiscrepancyPerson === 'petitioner' ? 'Petitioner' : 'Beneficiary'}</p>
+                        <p><strong>Names Used:</strong></p>
+                        <pre style="white-space: pre-wrap; font-family: inherit; margin: 8px 0;">${formData.differentNames}</pre>
+                        <p><strong>Reason:</strong></p>
+                        <pre style="white-space: pre-wrap; font-family: inherit; margin: 8px 0;">${formData.discrepancyReason}</pre>
+                    </div>
+                `;
+            }
+
+            html += '</div>';
+            document.getElementById('reviewContent').innerHTML = html;
+        }
+
+        // Generate documents
+        async function generateDocuments() {
+            const confirmCheckbox = document.getElementById('confirmAccuracy');
+            if (!confirmCheckbox.checked) {
+                alert('Please confirm that all information is accurate before generating documents.');
+                return;
+            }
+
+            document.getElementById('mainForm').style.display = 'none';
+            document.getElementById('loadingScreen').classList.add('active');
+
+            try {
+                const formData = getFormData();
+                generatedDocs = [];
+                
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Generate each HTML document
+                generatedDocs.push({
+                    name: '1_Filing_Cover_Letter',
+                    html: createCoverLetter(formData)
+                });
+                
+                generatedDocs.push({
+                    name: '2_Intent_To_Marry_Petitioner',
+                    html: createIntentPetitioner(formData)
+                });
+                
+                generatedDocs.push({
+                    name: '3_Intent_To_Marry_Beneficiary',
+                    html: createIntentBeneficiary(formData)
+                });
+                
+                generatedDocs.push({
+                    name: '4_Meeting_In_Person_Statement',
+                    html: createMeetingStatement(formData)
+                });
+                
+                if (formData.hasNameDiscrepancy) {
+                    generatedDocs.push({
+                        name: '5_Name_Discrepancy_Statement',
+                        html: createNameDiscrepancy(formData)
+                    });
+                }
+                
+                generatedDocs.push({
+                    name: '6_IMB_Disclosure_Statement',
+                    html: createIMBDisclosure(formData)
+                });
+
+                document.getElementById('loadingScreen').classList.remove('active');
+                document.getElementById('successScreen').classList.add('active');
+                
+                createDownloadButtons();
+                
+            } catch (error) {
+                console.error('Error generating documents:', error);
+                alert('There was an error generating your documents. Please try again.');
+                document.getElementById('loadingScreen').classList.remove('active');
+                document.getElementById('mainForm').style.display = 'block';
+            }
+        }
+
+        // Create download buttons
+        function createDownloadButtons() {
+            const container = document.getElementById('downloadButtons');
+            container.innerHTML = '';
+            
+            const buttonLabels = {
+                '1_Filing_Cover_Letter': 'Filing Cover Letter',
+                '2_Intent_To_Marry_Petitioner': 'Intent to Marry - Petitioner',
+                '3_Intent_To_Marry_Beneficiary': 'Intent to Marry - Beneficiary',
+                '4_Meeting_In_Person_Statement': 'Meeting in Person Statement',
+                '5_Name_Discrepancy_Statement': 'Name Discrepancy Statement',
+                '6_IMB_Disclosure_Statement': 'IMB Disclosure Statement'
+            };
+            
+            generatedDocs.forEach(doc => {
+                const button = document.createElement('button');
+                button.className = 'btn-download';
+                button.textContent = `📄 Open ${buttonLabels[doc.name]}`;
+                button.onclick = () => {
+                    const newWindow = window.open('', '_blank');
+                    newWindow.document.write(doc.html);
+                    newWindow.document.close();
+                };
+                container.appendChild(button);
+            });
+        }
+
+        // Document Generation Functions
+        function getDocumentTemplate(title, content, data) {
+            return `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>${title}</title>
+    <style>
+        @page {
+            margin: 0.75in;
+        }
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+            color: #000;
+        }
+        .header-info {
+            margin-bottom: 16pt;
+            line-height: 1.3;
+        }
+        .header-info p {
+            margin: 0;
+        }
+        p {
+            margin-bottom: 10pt;
+            text-align: justify;
+        }
+        .signature-line {
+            margin-top: 30px;
+            page-break-inside: avoid;
+        }
+        .signature-line p {
+            margin: 3px 0;
+        }
+        ul {
+            margin: 10pt 0;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 4pt;
+        }
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #2a4365;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+        }
+        .print-button:hover {
+            background: #4a5f85;
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    ${content}
+</body>
+</html>`;
+        }
+
+        function createCoverLetter(data) {
+            const content = `
+                <div class="header-info">
+                    <p>U.S. Citizenship and Immigration Services</p>
+                    <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
+                    <p>Petitioner: ${data.petitionerName}</p>
+                    <p>Beneficiary: ${data.beneficiaryName}</p>
+                </div>
+
+                <p>To Whom It May Concern:</p>
+
+                <p>Please find enclosed my Form I-129F, Petition for Alien Fiancé(e), filed on behalf of my fiancé(e), ${data.beneficiaryName}.</p>
+
+                <p>The following items are included in support of this petition:</p>
+
+                <ul>
+                    <li>Form I-129F, Petition for Alien Fiancé(e)</li>
+                    <li>Filing fee in the amount of ${data.filingFee}</li>
+                    <li>Proof of U.S. citizenship of the petitioner</li>
+                    <li>Two passport-style photographs of the petitioner</li>
+                    <li>Two passport-style photographs of the beneficiary</li>
+                    <li>Statements of intent to marry from both parties</li>
+                    <li>Evidence of having met in person within the required timeframe</li>
+                    <li>[Any additional supporting documents enclosed]</li>
+                </ul>
+
+                <p>Thank you for your time and consideration of this petition.</p>
+
+                <div class="signature-line">
+                    <p>Sincerely,</p>
+                    <p style="margin-top: 30px;">____________________________________</p>
+                    <p>${data.petitionerName}</p>
+                    <p>Signature</p>
+                    <p style="margin-top: 8px;">Date: ${formatDate(data.filingDate)}</p>
+                </div>
+            `;
+            return getDocumentTemplate('Filing Cover Letter', content, data);
+        }
+
+        function createIntentPetitioner(data) {
+            const content = `
+                <div class="header-info">
+                    <p>U.S. Citizenship and Immigration Services</p>
+                    <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
+                    <p>Petitioner: ${data.petitionerName}</p>
+                    <p>Beneficiary: ${data.beneficiaryName}</p>
+                </div>
+
+                <p>To Whom It May Concern:</p>
+
+                <p>I, ${data.petitionerName}, am a United States citizen and the petitioner in the above-referenced Form I-129F.</p>
+
+                <p>I hereby state that I am legally able and willing to marry my fiancé(e), ${data.beneficiaryName}, and that we intend to marry within ninety (90) days of my fiancé(e)'s lawful entry into the United States on a K-1 non-immigrant visa.</p>
+
+                <p>This statement is made in support of our Form I-129F petition.</p>
+
+                <div class="signature-line">
+                    <p>Sincerely,</p>
+                    <p style="margin-top: 30px;">____________________________________</p>
+                    <p>${data.petitionerName}</p>
+                    <p>Signature</p>
+                    <p style="margin-top: 8px;">Date: ${formatDate(data.filingDate)}</p>
+                </div>
+            `;
+            return getDocumentTemplate('Intent to Marry - Petitioner', content, data);
+        }
+
+        function createIntentBeneficiary(data) {
+            const content = `
+                <div class="header-info">
+                    <p>U.S. Citizenship and Immigration Services</p>
+                    <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
+                    <p>Petitioner: ${data.petitionerName}</p>
+                    <p>Beneficiary: ${data.beneficiaryName}</p>
+                </div>
+
+                <p>To Whom It May Concern:</p>
+
+                <p>I, ${data.beneficiaryName}, am the beneficiary of the above-referenced Form I-129F petition.</p>
+
+                <p>I hereby state that I am legally able and willing to marry my fiancé(e), ${data.petitionerName}, and that we intend to marry within ninety (90) days of my lawful entry into the United States on a K-1 nonimmigrant visa.</p>
+
+                <p>This statement is made in support of our Form I-129F petition.</p>
+
+                <div class="signature-line">
+                    <p>Sincerely,</p>
+                    <p style="margin-top: 30px;">____________________________________</p>
+                    <p>${data.beneficiaryName}</p>
+                    <p>Signature</p>
+                    <p style="margin-top: 8px;">Date: ${formatDate(data.filingDate)}</p>
+                </div>
+            `;
+            return getDocumentTemplate('Intent to Marry - Beneficiary', content, data);
+        }
+
+        function createMeetingStatement(data) {
+            let meetingInfo = `<p>We met in person on or about ${formatDate(data.meetingDate)} in ${data.meetingLocation}.`;
+            
+            if (data.hasAdditionalVisits && data.additionalVisits.length > 0) {
+                meetingInfo += `</p><p>We have also met in person on the following additional occasions:</p><ul>`;
+                data.additionalVisits.forEach(visit => {
+                    meetingInfo += `<li>${formatDate(visit.date)} in ${visit.location}</li>`;
+                });
+                meetingInfo += `</ul><p>Evidence of these meetings is included with our petition.</p>`;
+            } else {
+                meetingInfo += ` Evidence of this meeting is included with our petition.</p>`;
+            }
+
+            const content = `
+                <div class="header-info">
+                    <p>U.S. Citizenship and Immigration Services</p>
+                    <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
+                    <p>Petitioner: ${data.petitionerName}</p>
+                    <p>Beneficiary: ${data.beneficiaryName}</p>
+                </div>
+
+                <p>To Whom It May Concern:</p>
+
+                <p>I, ${data.petitionerName}, am the petitioner in the above-referenced Form I-129F.</p>
+
+                <p>I hereby confirm that I have met my fiancé(e), ${data.beneficiaryName}, in person within the two (2) years immediately preceding the filing of this petition, as required.</p>
+
+                ${meetingInfo}
+
+                <p>This statement is submitted in support of our Form I-129F petition.</p>
+
+                <div class="signature-line">
+                    <p>Sincerely,</p>
+                    <p style="margin-top: 30px;">____________________________________</p>
+                    <p>${data.petitionerName}</p>
+                    <p>Signature</p>
+                    <p style="margin-top: 8px;">Date: ${formatDate(data.filingDate)}</p>
+                </div>
+            `;
+            return getDocumentTemplate('Meeting in Person Statement', content, data);
+        }
+
+        function createNameDiscrepancy(data) {
+            const personName = data.nameDiscrepancyPerson === 'petitioner' ? data.petitionerName : data.beneficiaryName;
+            
+            const content = `
+                <div class="header-info">
+                    <p>U.S. Citizenship and Immigration Services</p>
+                    <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
+                    <p>Petitioner: ${data.petitionerName}</p>
+                    <p>Beneficiary: ${data.beneficiaryName}</p>
+                </div>
+
+                <p>To Whom It May Concern:</p>
+
+                <p>I, ${personName}, submit this statement to explain a name discrepancy appearing in documents provided with our Form I-129F petition.</p>
+
+                <p>The following names refer to the same individual:</p>
+
+                <p style="white-space: pre-wrap; margin-left: 20px;">${data.differentNames}</p>
+
+                <p>The discrepancy is due to ${data.discrepancyReason}</p>
+
+                <p>This statement is submitted in support of our Form I-129F petition.</p>
+
+                <div class="signature-line">
+                    <p>Sincerely,</p>
+                    <p style="margin-top: 30px;">____________________________________</p>
+                    <p>${personName}</p>
+                    <p>Signature</p>
+                    <p style="margin-top: 8px;">Date: ${formatDate(data.filingDate)}</p>
+                </div>
+            `;
+            return getDocumentTemplate('Name Discrepancy Statement', content, data);
+        }
+
+        function createIMBDisclosure(data) {
+            const imbText = data.howMet === 'natural' 
+                ? 'I did not meet my fiancé(e) through an International Marriage Broker as defined under the International Marriage Broker Regulation Act (IMBRA).'
+                : 'I met my fiancé(e) through a service or website that does not qualify as an International Marriage Broker under IMBRA.';
+
+            const content = `
+                <div class="header-info">
+                    <p>U.S. Citizenship and Immigration Services</p>
+                    <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
+                    <p>Petitioner: ${data.petitionerName}</p>
+                    <p>Beneficiary: ${data.beneficiaryName}</p>
+                </div>
+
+                <p>To Whom It May Concern:</p>
+
+                <p>I, ${data.petitionerName}, submit this statement in response to the International Marriage Broker (IMB) question included in Form I-129F.</p>
+
+                <p>${imbText}</p>
+
+                <p>This statement is submitted in support of our Form I-129F petition.</p>
+
+                <div class="signature-line">
+                    <p>Sincerely,</p>
+                    <p style="margin-top: 30px;">____________________________________</p>
+                    <p>${data.petitionerName}</p>
+                    <p>Signature</p>
+                    <p style="margin-top: 8px;">Date: ${formatDate(data.filingDate)}</p>
+                </div>
+            `;
+            return getDocumentTemplate('IMB Disclosure Statement', content, data);
+        }
+    </script>
+</body>
+</html>
