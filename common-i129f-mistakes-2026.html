@@ -20,7 +20,8 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{
+            scrollbar-gutter: stable;scroll-behavior:smooth}
 body{
   font-family: 'Outfit', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   color:var(--text-dark);
@@ -30,7 +31,7 @@ body{
 
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-                                /* Header with Navigation */
+        /* Header with Navigation */
         header {
             background: var(--bg-white);
             border-bottom: 1px solid var(--border-color);
@@ -43,6 +44,7 @@ body{
         }
 
         .header-content {
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -227,125 +229,34 @@ body{
                 display: block !important;
             }
         }
-        /* Main Navigation */
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-            justify-content: center;
-        }
-
-        nav a {
-            padding: 10px 16px;
-            color: var(--text-medium);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        nav a:hover {
-            color: var(--text-dark);
-            background: var(--bg-light);
-        }
-
-        nav a.active {
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-shrink: 0;
-        }
-
-        .member-login {
-            padding: 10px 18px;
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            background: transparent;
-            white-space: nowrap;
-        }
-
-        .member-login:hover {
-            color: var(--text-dark);
-            border-color: var(--text-medium);
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 28px;
-            background: var(--primary-blue);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
-            white-space: nowrap;
-        }
-
-        .cta-button:hover {
-            background: var(--dark-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-            color: white;
-        }
-
-        .cta-button-secondary {
-            background: transparent;
-            color: var(--primary-blue);
-            border: 2px solid var(--primary-blue);
-            box-shadow: none;
-        }
-
-        .cta-button-secondary:hover {
-            background: var(--primary-blue);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        .mobile-menu-toggle span {
-            width: 24px;
-            height: 2px;
-            background: var(--text-dark);
-            transition: all 0.3s ease;
-        }
-
-        .member-access-mobile {
-            display: none;
-        }
-
+.container-narrow{max-width:860px;margin:0 auto;padding:0 24px}
 
 a{color:var(--primary-blue);text-decoration:none}
 a:hover{text-decoration:underline}
 
+header{
+  background:rgba(255,255,255,.95);
+  border-bottom:1px solid var(--border-color);
+  padding:18px 0;
+  position:sticky;top:0;z-index:100;
+  backdrop-filter: blur(10px);
+}
+.header-content{
+            position: relative;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:40px;height:40px;flex:0 0 40px}
+.logo-text{font-weight:800;font-size:1.5rem;color:var(--text-dark);letter-spacing:-.02em}
+
+.cta-button{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 22px;border-radius:10px;
+  background:var(--primary-blue);color:#fff;
+  font-weight:700;border:0;cursor:pointer;
+  box-shadow:0 2px 10px rgba(37,99,235,.25);
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  white-space:nowrap;
+}
+.cta-button:hover{background:var(--dark-blue);transform:translateY(-1px);box-shadow:0 8px 18px rgba(37,99,235,.28);text-decoration:none}
 
 .hero{
   background:linear-gradient(135deg,#f8fafc 0%, #e8ecf1 100%);
@@ -464,47 +375,9 @@ footer .footrow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wr
   .btn{width:100%}
   .cta-links{width:100%}
 }
-
-        footer {
-            padding: 40px 0;
-            background: var(--text-dark);
-            color: white;
-            text-align: center;
-        }
-
-        footer p {
-            margin-bottom: 8px;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: underline;
-            opacity: 0.8;
-        }
-
-        footer a:hover {
-            opacity: 1;
-        }
-
-        .footer-links {
-            margin-top: 16px;
-            display: flex;
-            gap: 24px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .footer-updated {
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-    </style>
+</style>
 </head>
 <body>
-    <!-- Header with Navigation -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -567,8 +440,8 @@ footer .footrow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wr
   </ul>
   <hr>
   <div class="cta-links">
-    <a class="btn" href="k1-visa-checklist.html">Open the free checklist →</a>
-    <a class="btn secondary" href="index.html">Back to the main site →</a>
+    <a class="btn" href="/k1-visa-checklist.html">Open the free checklist →</a>
+    <a class="btn secondary" href="/">Back to the main site →</a>
   </div>
 </div>
 
@@ -703,37 +576,16 @@ footer .footrow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wr
       <h2>Want the simplest next step?</h2>
       <p>Use the checklist page to make sure your packet is complete, then do one slow final review for consistency.</p>
       <div class="cta-links">
-        <a class="btn" href="k1-visa-checklist.html">Free I‑129F checklist →</a>
-        <a class="btn secondary" href="index.html">Complete kit details →</a>
+        <a class="btn" href="/k1-visa-checklist.html">Free I‑129F checklist →</a>
+        <a class="btn secondary" href="/">Complete kit details →</a>
       </div>
       <p class="small" style="margin-top:12px"><strong>Note:</strong> This content is general information, not legal advice.</p>
     </div>
   </div>
 </div>
 
-
-    <div class="card span12" style="margin-top: 20px;">
-      <p style="color: var(--text-medium); line-height: 1.7;">If you're filing on your own, using a structured checklist helps avoid missing critical steps. Our <a href="k1-visa-checklist.html">free I-129F checklist</a> walks through each section to confirm nothing is overlooked before you submit.</p>
-    </div>
-
-
 <footer>
-  <div class="container">
-      <p>&copy; 2026 K1 Visa Kit. Not affiliated with USCIS. All rights reserved.</p>
-      
-      <div class="footer-links">
-          <a href="mailto:support@k1visakit.com">Contact Support</a>
-          <a href="index.html#about">Legal Disclaimer</a>
-          <a href="refund-policy.html">Refund Policy</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-      </div>
-
-      <div class="footer-updated">
-          Last updated: January 2026 | Current for 2026 USCIS forms
-      </div>
-  </div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-</body>
-</html>
+    <div class="container-narrow">
+      <div class="footrow">
+        <div>© 2026 K1 Visa Kit. Not affiliated with USCIS. All rights reserved.</div>
+        <div><a href="/cdn-cgi/l/email-protection#9deee8ededf2efe9ddf6acebf4eefcf6f4e9b3fef2f0"><span class="__cf_email__" data-cfemail=
