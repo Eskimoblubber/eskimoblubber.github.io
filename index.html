@@ -195,21 +195,35 @@
 
         @media (max-width: 968px) {
             nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                border-bottom: 1px solid var(--border-color);
-                flex-direction: column;
-                padding: 16px;
-                gap: 4px;
-            }
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: 0 16px;
+    gap: 4px;
+    
+    /* Always flex, hidden by default */
+    display: flex;
+    
+    /* Hide with max-height + opacity */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    
+    /* Smooth transitions */
+    transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+}
 
-            nav.open {
-                display: flex;
-            }
+nav.open {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 16px;
+}
 
             nav a {
                 width: 100%;
