@@ -47,6 +47,305 @@
             margin: 0 auto;
             padding: 40px 20px;
         }
+
+        /* NEW: Auto-Save Notification */
+        .save-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            display: none;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .save-notification.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* NEW: Privacy Notice Banner */
+        .privacy-banner {
+            background: #fffbeb;
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            display: none;
+        }
+
+        .privacy-banner.show {
+            display: block;
+        }
+
+        .privacy-banner h3 {
+            color: var(--accent);
+            font-size: 18px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .privacy-banner p {
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .privacy-banner ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .privacy-banner li {
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .privacy-banner-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* NEW: Shared Computer Toggle */
+        .shared-computer-toggle {
+            background: #fef2f2;
+            border: 2px solid #dc2626;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .shared-computer-toggle input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            margin-top: 0;
+            cursor: pointer;
+        }
+
+        .shared-computer-label {
+            flex: 1;
+        }
+
+        .shared-computer-label strong {
+            display: block;
+            color: #991b1b;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .shared-computer-label .help-text {
+            color: #7f1d1d;
+            font-size: 13px;
+            font-style: normal;
+        }
+
+        /* NEW: Clear Data Button */
+        .btn-danger {
+            background: #dc2626;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-danger:hover {
+            background: #b91c1c;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary-small {
+            background: var(--border);
+            color: var(--text);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary-small:hover {
+            background: #cbd5e1;
+        }
+
+        /* NEW: Persistent Data & Privacy Button */
+        .data-privacy-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 9998;
+            display: none;
+            transition: all 0.2s;
+        }
+
+        .data-privacy-button.show {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .data-privacy-button:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        /* NEW: Data & Privacy Modal */
+        .data-privacy-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .data-privacy-modal.show {
+            display: flex;
+        }
+
+        .data-privacy-content {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 32px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .data-privacy-content h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .data-privacy-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: var(--text-light);
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .data-privacy-close:hover {
+            background: var(--border);
+            color: var(--text);
+        }
+
+        .data-privacy-section {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-privacy-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .data-privacy-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .data-privacy-section p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .data-privacy-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-link {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .btn-link:hover {
+            color: var(--primary-light);
+        }
         
         /* Password Screen */
         .password-screen {
@@ -221,59 +520,56 @@
         }
         
         .form-header {
-            background: var(--surface);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 32px;
+            text-align: center;
+            margin-bottom: 48px;
         }
         
         .form-header h1 {
             font-family: 'Crimson Pro', serif;
             font-size: 36px;
+            font-weight: 700;
             color: var(--primary);
             margin-bottom: 12px;
         }
         
         .form-header p {
+            font-size: 18px;
             color: var(--text-light);
-            font-size: 16px;
         }
         
         /* Progress Bar */
         .progress-bar {
-            background: var(--surface);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 32px;
+            margin-bottom: 48px;
         }
         
         .progress-steps {
             display: flex;
             justify-content: space-between;
             position: relative;
-        }
-        
-        .progress-steps::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--border);
-            z-index: 0;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .progress-line {
             position: absolute;
             top: 20px;
             left: 0;
-            height: 2px;
-            background: var(--primary);
+            height: 4px;
+            background: var(--success);
             transition: width 0.3s ease;
+            width: 0%;
             z-index: 1;
+        }
+        
+        .progress-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: var(--border);
+            z-index: -1;
         }
         
         .progress-step {
@@ -282,7 +578,6 @@
             align-items: center;
             position: relative;
             z-index: 2;
-            flex: 1;
         }
         
         .progress-step-circle {
@@ -295,9 +590,10 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
+            font-size: 16px;
             color: var(--text-light);
+            transition: all 0.3s ease;
             margin-bottom: 8px;
-            transition: all 0.3s;
         }
         
         .progress-step.active .progress-step-circle {
@@ -314,14 +610,18 @@
         
         .progress-step-label {
             font-size: 12px;
+            font-weight: 600;
             color: var(--text-light);
             text-align: center;
-            font-weight: 500;
+            max-width: 100px;
         }
         
         .progress-step.active .progress-step-label {
             color: var(--primary);
-            font-weight: 600;
+        }
+        
+        .progress-step.completed .progress-step-label {
+            color: var(--success);
         }
         
         /* Form Steps */
@@ -330,7 +630,8 @@
             background: var(--surface);
             border: 2px solid var(--border);
             border-radius: 12px;
-            padding: 40px;
+            padding: 32px;
+            margin-bottom: 24px;
         }
         
         .form-step.active {
@@ -341,7 +642,7 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -353,13 +654,13 @@
             font-family: 'Crimson Pro', serif;
             font-size: 28px;
             color: var(--primary);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         
         .form-step-description {
             color: var(--text-light);
             margin-bottom: 32px;
-            font-size: 15px;
+            font-size: 16px;
         }
         
         .form-row {
@@ -371,30 +672,6 @@
         
         .form-row.single {
             grid-template-columns: 1fr;
-        }
-        
-        .input-with-button {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-        
-        .input-with-button input {
-            flex: 1;
-        }
-        
-        .btn-link {
-            background: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-            padding: 14px 20px;
-            white-space: nowrap;
-            font-size: 14px;
-        }
-        
-        .btn-link:hover {
-            background: var(--accent);
-            color: white;
         }
         
         .help-text {
@@ -560,6 +837,11 @@
     </style>
 </head>
 <body>
+    <!-- NEW: Auto-Save Notification -->
+    <div id="saveNotification" class="save-notification">
+        ✓ Progress saved
+    </div>
+
     <div class="container">
         <!-- PASSWORD SCREEN -->
         <div id="passwordScreen" class="password-screen">
@@ -596,6 +878,84 @@
 
         <!-- FORM SCREEN -->
         <div id="formScreen" class="form-screen">
+            <!-- NEW: Privacy Notice (Informational Only) -->
+            <div id="privacyBanner" class="privacy-banner">
+                <h3>🔒 Auto-Save & Privacy Notice</h3>
+                <p><strong>Your data is saved locally in your browser.</strong> This means:</p>
+                <ul>
+                    <li>✓ Your information <strong>never leaves your computer</strong></li>
+                    <li>✓ You can close this page and come back later - your progress is saved</li>
+                    <li>⚠️ Anyone with access to this computer can view your saved data</li>
+                </ul>
+                <p style="margin-top: 12px; font-size: 13px; color: var(--text-light);">
+                    Use the <strong>Data & Privacy</strong> button (bottom-right corner) to manage your saved data or disable auto-save on shared computers.
+                </p>
+                <div class="privacy-banner-actions">
+                    <button class="btn-secondary-small" onclick="dismissPrivacyNotice()">Got It</button>
+                </div>
+            </div>
+
+            <!-- NEW: Persistent Data & Privacy Button -->
+            <button id="dataPrivacyButton" class="data-privacy-button" onclick="openDataPrivacyModal()">
+                🔒 Data & Privacy
+            </button>
+
+            <!-- NEW: Data & Privacy Modal -->
+            <div id="dataPrivacyModal" class="data-privacy-modal" onclick="closeDataPrivacyModal(event)">
+                <div class="data-privacy-content" onclick="event.stopPropagation()">
+                    <button class="data-privacy-close" onclick="closeDataPrivacyModal()">&times;</button>
+                    
+                    <h2>Data & Privacy Settings</h2>
+
+                    <!-- Shared Computer Mode -->
+                    <div class="data-privacy-section">
+                        <h3>Storage Settings</h3>
+                        <div class="shared-computer-toggle">
+                            <input 
+                                type="checkbox" 
+                                id="sharedComputerMode" 
+                                onchange="toggleSharedComputerMode()"
+                            >
+                            <label for="sharedComputerMode" class="shared-computer-label">
+                                <strong>I am using a public or shared computer</strong>
+                                <div class="help-text">
+                                    Check this box to disable auto-save. Your form data will NOT be stored on this device. 
+                                    You must complete the form in a single session.
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Clear Data -->
+                    <div class="data-privacy-section">
+                        <h3>Delete Saved Data</h3>
+                        <p>
+                            Permanently delete all saved form progress from this browser. 
+                            This action cannot be undone.
+                        </p>
+                        <div class="data-privacy-actions">
+                            <button class="btn-danger" onclick="clearAllData()">
+                                Clear All Saved Data
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Notice -->
+                    <div class="data-privacy-section">
+                        <h3>Privacy Information</h3>
+                        <p>
+                            Your form data is stored locally in your browser and never transmitted to any server. 
+                            We do not track, collect, or share your information.
+                        </p>
+                        <div class="data-privacy-actions">
+                            <button class="btn-link" onclick="showPrivacyNoticeAgain()">
+                                Show Privacy Notice Again
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-header">
                 <h1>K1 Visa Document Generator</h1>
                 <p>Fill out the information below and we'll generate your supporting documents, ready to print and sign.</p>
@@ -672,22 +1032,13 @@
 
                         <div class="form-group">
                             <label for="filingFee">I-129F Filing Fee *</label>
-                            <div class="input-with-button">
-                                <input 
-                                    type="text" 
-                                    id="filingFee" 
-                                    name="filingFee"
-                                    value="$675"
-                                    required
-                                >
-                                <button 
-                                    type="button" 
-                                    class="btn btn-link"
-                                    onclick="window.open('https://www.uscis.gov/i-129f', '_blank')"
-                                >
-                                    Check Current Fee
-                                </button>
-                            </div>
+                            <input 
+                                type="text" 
+                                id="filingFee" 
+                                name="filingFee"
+                                value="$675"
+                                required
+                            >
                             <div class="help-text">Displayed fee is current as of January 2026. Always verify before filing.</div>
                         </div>
                     </div>
@@ -761,7 +1112,6 @@
                                 List up to 3 additional times you met in person. This can strengthen your petition by showing ongoing relationship.
                             </p>
 
-                            <!-- Visit 2 -->
                             <div class="form-row" style="margin-bottom: 20px;">
                                 <div class="form-group">
                                     <label for="meetingDate2">Visit 2 - Date</label>
@@ -783,7 +1133,6 @@
                                 </div>
                             </div>
 
-                            <!-- Visit 3 -->
                             <div class="form-row" style="margin-bottom: 20px;">
                                 <div class="form-group">
                                     <label for="meetingDate3">Visit 3 - Date</label>
@@ -799,13 +1148,12 @@
                                         type="text" 
                                         id="meetingLocation3" 
                                         name="meetingLocation3"
-                                        placeholder="New York, USA"
+                                        placeholder="Barcelona, Spain"
                                         spellcheck="true"
                                     >
                                 </div>
                             </div>
 
-                            <!-- Visit 4 -->
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="meetingDate4">Visit 4 - Date</label>
@@ -826,27 +1174,25 @@
                                     >
                                 </div>
                             </div>
-
-                            <div class="help-text" style="margin-top: 12px;">
-                                Only fill in the visits that occurred. Leave blank if you didn't have that many meetings.
-                            </div>
                         </div>
                     </div>
 
                     <div class="form-row single" style="margin-top: 24px;">
                         <div class="form-group">
-                            <label for="howMet">How Did You Meet? *</label>
+                            <label>
+                                How did you meet your fiancé(e)? *
+                            </label>
                             <div class="radio-group">
                                 <div class="radio-option">
                                     <input 
                                         type="radio" 
-                                        id="metNaturally" 
+                                        id="metNatural" 
                                         name="howMet" 
                                         value="natural"
-                                        checked
+                                        required
                                     >
-                                    <label for="metNaturally" class="checkbox-label">
-                                        We met naturally (friends, work, travel, social media, dating app, etc.)
+                                    <label for="metNatural" class="checkbox-label">
+                                        We met naturally (in person, through friends/family, etc.)
                                     </label>
                                 </div>
                                 <div class="radio-option">
@@ -1013,11 +1359,336 @@
                 <p style="margin-top: 12px; font-size: 12px; color: var(--text-light); font-style: italic;">
                     This tool provides document preparation assistance and does not constitute legal advice.
                 </p>
+                <div style="margin-top: 32px;">
+                    <button class="btn-danger" onclick="clearAllData()">
+                        Clear All Saved Data
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        // ==================================================================
+        // AUTO-SAVE FUNCTIONALITY
+        // ==================================================================
+        
+        const AUTOSAVE_KEY = 'k1_visa_form_progress';
+        const AUTOSAVE_INTERVAL = 5000; // Save every 5 seconds
+        const PRIVACY_DISMISSED_UNTIL_KEY = 'k1_privacy_dismissed_until';
+        const SHARED_COMPUTER_KEY = 'k1_shared_computer_mode';
+        let autosaveTimer = null;
+        let sharedComputerMode = false;
+
+        // Check if user is in shared computer mode
+        function isSharedComputerMode() {
+            return sharedComputerMode;
+        }
+
+        // Toggle shared computer mode
+        function toggleSharedComputerMode() {
+            const checkbox = document.getElementById('sharedComputerMode');
+            sharedComputerMode = checkbox.checked;
+            
+            // Save preference
+            if (sharedComputerMode) {
+                localStorage.setItem(SHARED_COMPUTER_KEY, 'true');
+                // Clear any existing saved data
+                localStorage.removeItem(AUTOSAVE_KEY);
+                console.log('⚠️ Shared computer mode enabled - auto-save disabled');
+                
+                // Hide privacy banner when in shared mode
+                document.getElementById('privacyBanner').classList.remove('show');
+            } else {
+                localStorage.removeItem(SHARED_COMPUTER_KEY);
+                console.log('✓ Auto-save enabled');
+            }
+        }
+
+        // Load shared computer mode preference
+        function loadSharedComputerPreference() {
+            const savedPreference = localStorage.getItem(SHARED_COMPUTER_KEY);
+            if (savedPreference === 'true') {
+                sharedComputerMode = true;
+                const checkbox = document.getElementById('sharedComputerMode');
+                if (checkbox) checkbox.checked = true;
+            }
+        }
+
+        // Open Data & Privacy Modal
+        function openDataPrivacyModal() {
+            document.getElementById('dataPrivacyModal').classList.add('show');
+        }
+
+        // Close Data & Privacy Modal
+        function closeDataPrivacyModal(event) {
+            // Only close if clicking the backdrop or close button
+            if (!event || event.target.id === 'dataPrivacyModal' || event.target.className === 'data-privacy-close') {
+                document.getElementById('dataPrivacyModal').classList.remove('show');
+            }
+        }
+
+        // Dismiss privacy notice (for 30 days)
+        function dismissPrivacyNotice() {
+            const thirtyDaysFromNow = new Date();
+            thirtyDaysFromNow.setDate(thirtyDaysFromNow.getDate() + 30);
+            localStorage.setItem(PRIVACY_DISMISSED_UNTIL_KEY, thirtyDaysFromNow.toISOString());
+            document.getElementById('privacyBanner').classList.remove('show');
+        }
+
+        // Show privacy notice again (clear dismissal)
+        function showPrivacyNoticeAgain() {
+            localStorage.removeItem(PRIVACY_DISMISSED_UNTIL_KEY);
+            document.getElementById('privacyBanner').classList.add('show');
+            closeDataPrivacyModal();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Check if privacy notice should be shown
+        function showPrivacyNotice() {
+            // Don't show if in shared computer mode
+            if (isSharedComputerMode()) {
+                return;
+            }
+
+            // Check if dismissed recently
+            const dismissedUntil = localStorage.getItem(PRIVACY_DISMISSED_UNTIL_KEY);
+            if (dismissedUntil) {
+                const dismissedDate = new Date(dismissedUntil);
+                const now = new Date();
+                if (now < dismissedDate) {
+                    // Still within dismissed period, don't show
+                    return;
+                } else {
+                    // Dismissal expired, clear it
+                    localStorage.removeItem(PRIVACY_DISMISSED_UNTIL_KEY);
+                }
+            }
+
+            // Show banner if there's saved data OR if never dismissed
+            const hasSavedData = localStorage.getItem(AUTOSAVE_KEY);
+            if (hasSavedData || !dismissedUntil) {
+                document.getElementById('privacyBanner').classList.add('show');
+            }
+        }
+
+        // Show Data & Privacy button (always visible when form is active)
+        function showDataPrivacyButton() {
+            document.getElementById('dataPrivacyButton').classList.add('show');
+        }
+
+        // Save all form data to localStorage (only if NOT in shared computer mode)
+        function saveProgress(showNotification = false) {
+            // Skip saving if in shared computer mode
+            if (isSharedComputerMode()) {
+                return;
+            }
+            
+            try {
+                const formData = getAllFormData();
+                formData.lastSaved = new Date().toISOString();
+                formData.version = '2.0';
+                
+                localStorage.setItem(AUTOSAVE_KEY, JSON.stringify(formData));
+                
+                // Only show notification if explicitly requested (e.g., on page change)
+                if (showNotification) {
+                    showSaveNotification();
+                }
+                
+                console.log('✓ Progress saved:', new Date().toLocaleTimeString());
+            } catch (error) {
+                console.error('Failed to save progress:', error);
+            }
+        }
+
+        // Load saved progress from localStorage
+        function loadProgress() {
+            // Skip loading if in shared computer mode
+            if (isSharedComputerMode()) {
+                return false;
+            }
+            
+            try {
+                const savedData = localStorage.getItem(AUTOSAVE_KEY);
+                if (!savedData) return false;
+                
+                const formData = JSON.parse(savedData);
+                
+                // Show restore prompt
+                const lastSaved = new Date(formData.lastSaved).toLocaleString();
+                const shouldRestore = confirm(
+                    `We found your saved progress from ${lastSaved}.\n\n` +
+                    `Would you like to continue where you left off?\n\n` +
+                    `Click OK to restore, or Cancel to start fresh.`
+                );
+                
+                if (!shouldRestore) {
+                    // User wants to start fresh - clear saved data
+                    localStorage.removeItem(AUTOSAVE_KEY);
+                    return false;
+                }
+                
+                // Restore all fields
+                restoreFormData(formData);
+                
+                console.log('✓ Progress restored from:', lastSaved);
+                return true;
+            } catch (error) {
+                console.error('Failed to load progress:', error);
+                return false;
+            }
+        }
+
+        // Get all current form data
+        function getAllFormData() {
+            return {
+                // Step 1
+                petitionerName: getValue('petitionerName'),
+                beneficiaryName: getValue('beneficiaryName'),
+                filingDate: getValue('filingDate'),
+                filingFee: getValue('filingFee'),
+                
+                // Step 2
+                meetingDate: getValue('meetingDate'),
+                meetingLocation: getValue('meetingLocation'),
+                hasAdditionalVisits: getChecked('hasAdditionalVisits'),
+                meetingDate2: getValue('meetingDate2'),
+                meetingLocation2: getValue('meetingLocation2'),
+                meetingDate3: getValue('meetingDate3'),
+                meetingLocation3: getValue('meetingLocation3'),
+                meetingDate4: getValue('meetingDate4'),
+                meetingLocation4: getValue('meetingLocation4'),
+                howMet: getRadioValue('howMet'),
+                
+                // Step 3
+                hasNameDiscrepancy: getChecked('hasNameDiscrepancy'),
+                nameDiscrepancyPerson: getValue('nameDiscrepancyPerson'),
+                differentNames: getValue('differentNames'),
+                discrepancyReason: getValue('discrepancyReason'),
+                
+                // Metadata
+                currentStep: currentStep
+            };
+        }
+
+        // Restore form data from saved object
+        function restoreFormData(formData) {
+            // Restore text/date inputs
+            Object.keys(formData).forEach(key => {
+                if (key === 'lastSaved' || key === 'version' || key === 'currentStep') return;
+                
+                const element = document.getElementById(key);
+                if (!element) return;
+                
+                if (element.type === 'checkbox') {
+                    element.checked = formData[key] || false;
+                } else if (element.type === 'radio') {
+                    if (element.value === formData[key]) {
+                        element.checked = true;
+                    }
+                } else {
+                    element.value = formData[key] || '';
+                }
+            });
+            
+            // Restore radio buttons separately
+            if (formData.howMet) {
+                const radio = document.querySelector(`input[name="howMet"][value="${formData.howMet}"]`);
+                if (radio) radio.checked = true;
+            }
+            
+            // Restore conditional field visibility
+            if (formData.hasAdditionalVisits) {
+                document.getElementById('additionalVisitsFields').style.display = 'block';
+            }
+            
+            if (formData.hasNameDiscrepancy) {
+                const fields = document.getElementById('nameDiscrepancyFields');
+                fields.style.display = 'block';
+                fields.querySelectorAll('input, select, textarea').forEach(el => {
+                    el.setAttribute('required', 'required');
+                });
+            }
+            
+            // Restore current step
+            if (formData.currentStep && formData.currentStep > 1) {
+                currentStep = formData.currentStep;
+                updateStepDisplay();
+            }
+        }
+
+        // Helper functions to get form values
+        function getValue(id) {
+            const el = document.getElementById(id);
+            return el ? el.value : '';
+        }
+
+        function getChecked(id) {
+            const el = document.getElementById(id);
+            return el ? el.checked : false;
+        }
+
+        function getRadioValue(name) {
+            const radio = document.querySelector(`input[name="${name}"]:checked`);
+            return radio ? radio.value : '';
+        }
+
+        // Show save notification
+        function showSaveNotification() {
+            const notification = document.getElementById('saveNotification');
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+
+        // Clear all saved data
+        function clearAllData() {
+            if (confirm(
+                'Are you sure you want to delete all saved progress?\n\n' +
+                'This will permanently erase all your form data and cannot be undone.\n\n' +
+                'Click OK to delete everything, or Cancel to keep your data.'
+            )) {
+                localStorage.removeItem(AUTOSAVE_KEY);
+                localStorage.removeItem(PRIVACY_DISMISSED_UNTIL_KEY);
+                localStorage.removeItem(SHARED_COMPUTER_KEY);
+                alert('All saved data has been cleared. The page will now reload.');
+                location.reload();
+            }
+        }
+
+        // Privacy notice functions - already defined above in auto-save section
+        // (moved to avoid duplication)
+
+        // Start auto-save on form changes
+        function startAutoSave() {
+            // Save on any form change (silently - no notification)
+            document.getElementById('mainForm').addEventListener('input', function() {
+                // Debounce - wait 1 second after last change
+                clearTimeout(autosaveTimer);
+                autosaveTimer = setTimeout(() => saveProgress(false), 1000);
+            });
+            
+            document.getElementById('mainForm').addEventListener('change', function() {
+                // Save immediately on checkbox/radio/select changes (silently)
+                saveProgress(false);
+            });
+            
+            // Also save periodically (every 5 seconds) as backup (silently)
+            setInterval(() => saveProgress(false), AUTOSAVE_INTERVAL);
+            
+            // Save before page unload (silently)
+            window.addEventListener('beforeunload', function() {
+                saveProgress(false);
+            });
+        }
+
+        // ==================================================================
+        // EXISTING FORM FUNCTIONALITY (from original template.html)
+        // ==================================================================
+        
         // Current step tracking
         let currentStep = 1;
         const totalSteps = 4;
@@ -1025,10 +1696,14 @@
         // Store generated documents
         let generatedDocs = [];
 
-        // Set default filing date to today
+        // Initialize on page load
         window.addEventListener('DOMContentLoaded', function() {
+            // Set default filing date to today
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('filingDate').value = today;
+            
+            // Try to load saved progress after password screen
+            // This will be called again after password is entered
         });
 
         // Password validation
@@ -1039,6 +1714,16 @@
             if (password.startsWith('K1V-') || password === 'filewithconfidence') {
                 document.getElementById('passwordScreen').classList.add('hidden');
                 document.getElementById('formScreen').classList.add('active');
+                
+                // NOW load saved progress (after form is visible)
+                setTimeout(function() {
+                    loadSharedComputerPreference();
+                    loadProgress();
+                    showPrivacyNotice();
+                    showDataPrivacyButton();
+                    startAutoSave();
+                }, 100);
+                
             } else {
                 document.getElementById('passwordError').classList.add('show');
             }
@@ -1065,6 +1750,9 @@
                     return;
                 }
 
+                // Save progress WITH notification when moving to next step
+                saveProgress(true);
+
                 currentStep++;
                 updateStepDisplay();
                 
@@ -1076,6 +1764,9 @@
 
         function prevStep() {
             if (currentStep > 1) {
+                // Save progress WITH notification when going back
+                saveProgress(true);
+                
                 currentStep--;
                 updateStepDisplay();
             }
@@ -1119,6 +1810,8 @@
                     document.getElementById(`meetingLocation${i}`).value = '';
                 }
             }
+            
+            saveProgress(false); // Save silently when toggling
         }
 
         // Toggle name discrepancy fields
@@ -1138,9 +1831,11 @@
                     el.value = '';
                 });
             }
+            
+            saveProgress(false); // Save silently when toggling
         }
 
-        // Get form data
+        // Get form data (for document generation)
         function getFormData() {
             const data = {
                 petitionerName: document.getElementById('petitionerName').value,
@@ -1247,80 +1942,68 @@
                 
                 await new Promise(resolve => setTimeout(resolve, 1000));
 
-                // Generate each HTML document
+                // Generate each document
                 generatedDocs.push({
-                    name: '1_Filing_Cover_Letter',
+                    name: 'Filing Cover Letter',
                     html: createCoverLetter(formData)
                 });
-                
+
                 generatedDocs.push({
-                    name: '2_Intent_To_Marry_Petitioner',
+                    name: 'Intent to Marry - Petitioner',
                     html: createIntentPetitioner(formData)
                 });
-                
+
                 generatedDocs.push({
-                    name: '3_Intent_To_Marry_Beneficiary',
+                    name: 'Intent to Marry - Beneficiary',
                     html: createIntentBeneficiary(formData)
                 });
-                
+
                 generatedDocs.push({
-                    name: '4_Meeting_In_Person_Statement',
+                    name: 'Meeting in Person Statement',
                     html: createMeetingStatement(formData)
                 });
-                
+
                 if (formData.hasNameDiscrepancy) {
                     generatedDocs.push({
-                        name: '5_Name_Discrepancy_Statement',
+                        name: 'Name Discrepancy Statement',
                         html: createNameDiscrepancy(formData)
                     });
                 }
-                
+
                 generatedDocs.push({
-                    name: '6_IMB_Disclosure_Statement',
+                    name: 'IMB Disclosure Statement',
                     html: createIMBDisclosure(formData)
                 });
 
+                // Show success screen
                 document.getElementById('loadingScreen').classList.remove('active');
                 document.getElementById('successScreen').classList.add('active');
-                
-                createDownloadButtons();
-                
+
+                // Create download buttons
+                const downloadButtons = document.getElementById('downloadButtons');
+                downloadButtons.innerHTML = '';
+
+                generatedDocs.forEach(doc => {
+                    const button = document.createElement('button');
+                    button.className = 'btn-download';
+                    button.textContent = `📄 Open ${doc.name}`;
+                    button.onclick = function() {
+                        const newWindow = window.open('', '_blank');
+                        newWindow.document.write(doc.html);
+                        newWindow.document.close();
+                    };
+                    downloadButtons.appendChild(button);
+                });
+
             } catch (error) {
                 console.error('Error generating documents:', error);
-                alert('There was an error generating your documents. Please try again.');
+                alert('An error occurred while generating documents. Please try again.');
                 document.getElementById('loadingScreen').classList.remove('active');
                 document.getElementById('mainForm').style.display = 'block';
             }
         }
 
-        // Create download buttons
-        function createDownloadButtons() {
-            const container = document.getElementById('downloadButtons');
-            container.innerHTML = '';
-            
-            const buttonLabels = {
-                '1_Filing_Cover_Letter': 'Filing Cover Letter',
-                '2_Intent_To_Marry_Petitioner': 'Intent to Marry - Petitioner',
-                '3_Intent_To_Marry_Beneficiary': 'Intent to Marry - Beneficiary',
-                '4_Meeting_In_Person_Statement': 'Meeting in Person Statement',
-                '5_Name_Discrepancy_Statement': 'Name Discrepancy Statement',
-                '6_IMB_Disclosure_Statement': 'IMB Disclosure Statement'
-            };
-            
-            generatedDocs.forEach(doc => {
-                const button = document.createElement('button');
-                button.className = 'btn-download';
-                button.textContent = `📄 Open ${buttonLabels[doc.name]}`;
-                button.onclick = () => {
-                    const newWindow = window.open('', '_blank');
-                    newWindow.document.write(doc.html);
-                    newWindow.document.close();
-                };
-                container.appendChild(button);
-            });
-        }
-
-        // Document Generation Functions
+        // Document template wrapper
         function getDocumentTemplate(title, content, data) {
             return `<!DOCTYPE html>
 <html>
@@ -1328,64 +2011,50 @@
     <meta charset="UTF-8">
     <title>${title}</title>
     <style>
-        @page {
-            margin: 0.75in;
-        }
         body {
             font-family: 'Times New Roman', serif;
-            font-size: 12pt;
-            line-height: 1.5;
             max-width: 8.5in;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 1in auto;
+            padding: 0 1in;
+            line-height: 1.6;
             color: #000;
         }
         .header-info {
-            margin-bottom: 16pt;
-            line-height: 1.3;
+            margin-bottom: 24px;
         }
         .header-info p {
-            margin: 0;
+            margin: 4px 0;
         }
         p {
-            margin-bottom: 10pt;
+            margin: 12px 0;
             text-align: justify;
         }
-        .signature-line {
-            margin-top: 30px;
-            page-break-inside: avoid;
-        }
-        .signature-line p {
-            margin: 3px 0;
-        }
         ul {
-            margin: 10pt 0;
-            padding-left: 30px;
+            margin: 12px 0;
         }
         li {
-            margin-bottom: 4pt;
+            margin: 6px 0;
+        }
+        .signature-line {
+            margin-top: 48px;
         }
         .print-button {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background: #2a4365;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
+            font-size: 16px;
             cursor: pointer;
-            font-size: 14px;
-            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         .print-button:hover {
-            background: #4a5f85;
+            background: #1a2f4d;
         }
         @media print {
-            body {
-                margin: 0;
-                padding: 0;
-            }
             .print-button {
                 display: none;
             }
@@ -1401,6 +2070,11 @@
 
         function createCoverLetter(data) {
             const content = `
+                <div class="header-info">
+                    <p>${data.petitionerName}</p>
+                    <p>${formatDate(data.filingDate)}</p>
+                </div>
+                
                 <div class="header-info">
                     <p>U.S. Citizenship and Immigration Services</p>
                     <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
@@ -1422,7 +2096,6 @@
                     <li>Two passport-style photographs of the beneficiary</li>
                     <li>Statements of intent to marry from both parties</li>
                     <li>Evidence of having met in person within the required timeframe</li>
-                    <li>[Any additional supporting documents enclosed]</li>
                 </ul>
 
                 <p>Thank you for your time and consideration of this petition.</p>
@@ -1441,6 +2114,11 @@
         function createIntentPetitioner(data) {
             const content = `
                 <div class="header-info">
+                    <p>${data.petitionerName}</p>
+                    <p>${formatDate(data.filingDate)}</p>
+                </div>
+
+                <div class="header-info">
                     <p>U.S. Citizenship and Immigration Services</p>
                     <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
                     <p>Petitioner: ${data.petitionerName}</p>
@@ -1451,7 +2129,7 @@
 
                 <p>I, ${data.petitionerName}, am a United States citizen and the petitioner in the above-referenced Form I-129F.</p>
 
-                <p>I hereby state that I am legally able and willing to marry my fiancé(e), ${data.beneficiaryName}, and that we intend to marry within ninety (90) days of my fiancé(e)'s lawful entry into the United States on a K-1 non-immigrant visa.</p>
+                <p>I hereby state that I am legally able and willing to marry my fiancé(e), ${data.beneficiaryName}, and that we intend to marry within ninety (90) days of my fiancé(e)'s lawful entry into the United States on a K-1 nonimmigrant visa.</p>
 
                 <p>This statement is made in support of our Form I-129F petition.</p>
 
@@ -1468,6 +2146,11 @@
 
         function createIntentBeneficiary(data) {
             const content = `
+                <div class="header-info">
+                    <p>${data.beneficiaryName}</p>
+                    <p>${formatDate(data.filingDate)}</p>
+                </div>
+
                 <div class="header-info">
                     <p>U.S. Citizenship and Immigration Services</p>
                     <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
@@ -1509,6 +2192,11 @@
 
             const content = `
                 <div class="header-info">
+                    <p>${data.petitionerName}</p>
+                    <p>${formatDate(data.filingDate)}</p>
+                </div>
+
+                <div class="header-info">
                     <p>U.S. Citizenship and Immigration Services</p>
                     <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
                     <p>Petitioner: ${data.petitionerName}</p>
@@ -1540,6 +2228,11 @@
             const personName = data.nameDiscrepancyPerson === 'petitioner' ? data.petitionerName : data.beneficiaryName;
             
             const content = `
+                <div class="header-info">
+                    <p>${personName}</p>
+                    <p>${formatDate(data.filingDate)}</p>
+                </div>
+
                 <div class="header-info">
                     <p>U.S. Citizenship and Immigration Services</p>
                     <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
@@ -1576,6 +2269,11 @@
                 : 'I met my fiancé(e) through a service or website that does not qualify as an International Marriage Broker under IMBRA.';
 
             const content = `
+                <div class="header-info">
+                    <p>${data.petitionerName}</p>
+                    <p>${formatDate(data.filingDate)}</p>
+                </div>
+
                 <div class="header-info">
                     <p>U.S. Citizenship and Immigration Services</p>
                     <p>RE: Form I-129F, Petition for Alien Fiancé(e)</p>
